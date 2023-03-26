@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SearchForProfessions.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,21 @@ namespace SearchForProfessions.Pages
         {
             InitializeComponent();
             listSpecialization.ItemsSource = Clasees.DataBaseClass.connect.SpecializationTable.ToList();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int id = Convert.ToInt32(btn.Uid);
+            SpecializationTable specialization = Clasees.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.ID == id);
+            SpecializationWindow window = new SpecializationWindow(specialization);
+            window.ShowDialog();
+        }
+
+        private void btnAddSpecialization_Click(object sender, RoutedEventArgs e)
+        {
+            SpecializationWindow window = new SpecializationWindow();
+            window.ShowDialog();
         }
     }
 }
