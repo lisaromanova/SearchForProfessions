@@ -31,11 +31,12 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border BorderBrush="Black" CornerRadius="10" BorderThickness="2">
-                            <ContentControl VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+                            <ContentControl Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="Cursor" Value="Hand"/>
         </Style>
     </Application.Resources>
 </Application>
