@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Специальность" Height="600" Width="500">
-    <Grid VerticalAlignment="Center">
+        Title="Специальность" Height="600" Width="500" Background="{StaticResource gradient}">
+    <Grid VerticalAlignment="Center" >
         <StackPanel Width="400">
             <TextBlock Text="Добавление специальности" Style="{StaticResource TextBlockHeader}"/>
             <GroupBox Header="Шифр" Style="{StaticResource GroupBoxBase}">
@@ -35,7 +35,7 @@
                     <Button Name="btnAddQualification" Style="{StaticResource ButtonAdd}" Click="btnAddQualification_Click"/>
                 </StackPanel>
             </GroupBox>
-            <Button Margin="0,10,0,0" Width="200" Content="Сохранить" Style="{StaticResource ButtonBase}" Name="btnSave"/>
+            <Button Margin="0,10,0,0" Width="200" Content="Сохранить" Style="{StaticResource ButtonBase}" Name="btnSave" Click="btnSave_Click"/>
         </StackPanel>
     </Grid>
 </Window>

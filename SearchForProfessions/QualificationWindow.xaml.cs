@@ -29,7 +29,7 @@ namespace SearchForProfessions
         /// Проверка заполнения полей
         /// </summary>
         /// <param name="name">Наименование квалификации</param>
-        /// <returns>Поля заполнены (да), поля не заполнены (нет)</returns>
+        /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
         bool CheckFields(string name)
         {
             if (!string.IsNullOrEmpty(name))
@@ -38,6 +38,7 @@ namespace SearchForProfessions
             }
             else
             {
+                MessageBox.Show("Введите наименование квалификации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -61,10 +62,6 @@ namespace SearchForProfessions
                 {
                     MessageBox.Show("Ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Введите наименование квалификации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

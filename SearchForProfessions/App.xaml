@@ -4,8 +4,19 @@
              xmlns:local="clr-namespace:SearchForProfessions"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+        <LinearGradientBrush x:Key="gradient" StartPoint="0.5,1" EndPoint="0.5,0">
+            <GradientStop Color="#8EC5FC" Offset="0"/>
+            <GradientStop Color="#E0C3FC" Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonForeground">
+            <GradientStop Color="#FFB859FA" Offset="0" />
+            <GradientStop Color="#FF0081FF" Offset="1" />
+        </LinearGradientBrush>
+
         <Style x:Key="Button" TargetType="Button">
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -30,7 +41,7 @@
         </Style>
 
         <Style x:Key="ButtonAdd" TargetType="Button">
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -65,32 +76,34 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="White" BorderBrush="Black" CornerRadius="10" BorderThickness="2">
-                            <ContentControl Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+                            <ContentControl Margin="5" Foreground="{StaticResource ButtonForeground}" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
 
         <Style x:Key="ButtonList" TargetType="Button">
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="Height" Value="40"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
         <Style x:Key="TextBlockBase" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
         </Style>
 
         <Style x:Key="TextBlockHeader" TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -100,12 +113,18 @@
         </Style>
 
         <Style x:Key="GroupBoxBase" TargetType="GroupBox">
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Padding" Value="2"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
     </Application.Resources>
 </Application>

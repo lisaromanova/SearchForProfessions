@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище BaseOfSpecializationsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище BaseOfSpecializationsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdmissionPlanQualificationTable">
           <Key>
             <PropertyRef Name="ID" />
@@ -70,7 +70,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDSpecialization" Type="int" Nullable="false" />
           <Property Name="IDQualification" Type="int" Nullable="false" />
         </EntityType>
@@ -237,11 +237,57 @@
             <End Role="SpecializationQualificationTable" EntitySet="SpecializationQualificationTable" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BaseOfSpecializationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BaseOfSpecializationsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdmissionPlanQualificationTable" EntityType="BaseOfSpecializationsModel.AdmissionPlanQualificationTable" />
+          <EntitySet Name="AdmissionPlanTable" EntityType="BaseOfSpecializationsModel.AdmissionPlanTable" />
+          <EntitySet Name="EducationLevelTable" EntityType="BaseOfSpecializationsModel.EducationLevelTable" />
+          <EntitySet Name="FinancialBasisTable" EntityType="BaseOfSpecializationsModel.FinancialBasisTable" />
+          <EntitySet Name="FormOfTrainingTable" EntityType="BaseOfSpecializationsModel.FormOfTrainingTable" />
+          <EntitySet Name="OrganizationTable" EntityType="BaseOfSpecializationsModel.OrganizationTable" />
+          <EntitySet Name="QualificationTable" EntityType="BaseOfSpecializationsModel.QualificationTable" />
+          <EntitySet Name="SpecializationQualificationTable" EntityType="BaseOfSpecializationsModel.SpecializationQualificationTable" />
+          <EntitySet Name="SpecializationTable" EntityType="BaseOfSpecializationsModel.SpecializationTable" />
+          <AssociationSet Name="FK__Admission__IDAdm__49C3F6B7" Association="BaseOfSpecializationsModel.FK__Admission__IDAdm__49C3F6B7">
+            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
+            <End Role="AdmissionPlanQualificationTable" EntitySet="AdmissionPlanQualificationTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Admission__IDQua__4AB81AF0" Association="BaseOfSpecializationsModel.FK__Admission__IDQua__4AB81AF0">
+            <End Role="QualificationTable" EntitySet="QualificationTable" />
+            <End Role="AdmissionPlanQualificationTable" EntitySet="AdmissionPlanQualificationTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Admission__IDEdu__45F365D3" Association="BaseOfSpecializationsModel.FK__Admission__IDEdu__45F365D3">
+            <End Role="EducationLevelTable" EntitySet="EducationLevelTable" />
+            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Admission__IDFin__46E78A0C" Association="BaseOfSpecializationsModel.FK__Admission__IDFin__46E78A0C">
+            <End Role="FinancialBasisTable" EntitySet="FinancialBasisTable" />
+            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Admission__IDFor__44FF419A" Association="BaseOfSpecializationsModel.FK__Admission__IDFor__44FF419A">
+            <End Role="FormOfTrainingTable" EntitySet="FormOfTrainingTable" />
+            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Admission__IDOrg__4316F928" Association="BaseOfSpecializationsModel.FK__Admission__IDOrg__4316F928">
+            <End Role="OrganizationTable" EntitySet="OrganizationTable" />
+            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Admission__IDSpe__440B1D61" Association="BaseOfSpecializationsModel.FK__Admission__IDSpe__440B1D61">
+            <End Role="SpecializationTable" EntitySet="SpecializationTable" />
+            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpecializationQualificationTable_QualificationTable" Association="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_QualificationTable">
+            <End Role="QualificationTable" EntitySet="QualificationTable" />
+            <End Role="SpecializationQualificationTable" EntitySet="SpecializationQualificationTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpecializationQualificationTable_SpecializationTable" Association="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_SpecializationTable">
+            <End Role="SpecializationTable" EntitySet="SpecializationTable" />
+            <End Role="SpecializationQualificationTable" EntitySet="SpecializationQualificationTable" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="AdmissionPlanQualificationTable">
           <Key>
             <PropertyRef Name="ID" />
@@ -249,8 +295,8 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDAdmissionPlan" Type="Int32" Nullable="false" />
           <Property Name="IDQualification" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AdmissionPlanTable" Relationship="Self.FK__Admission__IDAdm__49C3F6B7" FromRole="AdmissionPlanQualificationTable" ToRole="AdmissionPlanTable" />
-          <NavigationProperty Name="QualificationTable" Relationship="Self.FK__Admission__IDQua__4AB81AF0" FromRole="AdmissionPlanQualificationTable" ToRole="QualificationTable" />
+          <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDAdm__49C3F6B7" FromRole="AdmissionPlanQualificationTable" ToRole="AdmissionPlanTable" />
+          <NavigationProperty Name="QualificationTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDQua__4AB81AF0" FromRole="AdmissionPlanQualificationTable" ToRole="QualificationTable" />
         </EntityType>
         <EntityType Name="AdmissionPlanTable">
           <Key>
@@ -265,81 +311,81 @@
           <Property Name="IDFinancialBasisis" Type="Int32" Nullable="false" />
           <Property Name="AdmissionPlan" Type="Int32" Nullable="false" />
           <Property Name="EntranceTest" Type="Boolean" />
-          <NavigationProperty Name="AdmissionPlanQualificationTable" Relationship="Self.FK__Admission__IDAdm__49C3F6B7" FromRole="AdmissionPlanTable" ToRole="AdmissionPlanQualificationTable" />
-          <NavigationProperty Name="EducationLevelTable" Relationship="Self.FK__Admission__IDEdu__45F365D3" FromRole="AdmissionPlanTable" ToRole="EducationLevelTable" />
-          <NavigationProperty Name="FinancialBasisTable" Relationship="Self.FK__Admission__IDFin__46E78A0C" FromRole="AdmissionPlanTable" ToRole="FinancialBasisTable" />
-          <NavigationProperty Name="FormOfTrainingTable" Relationship="Self.FK__Admission__IDFor__44FF419A" FromRole="AdmissionPlanTable" ToRole="FormOfTrainingTable" />
-          <NavigationProperty Name="OrganizationTable" Relationship="Self.FK__Admission__IDOrg__4316F928" FromRole="AdmissionPlanTable" ToRole="OrganizationTable" />
-          <NavigationProperty Name="SpecializationTable" Relationship="Self.FK__Admission__IDSpe__440B1D61" FromRole="AdmissionPlanTable" ToRole="SpecializationTable" />
+          <NavigationProperty Name="AdmissionPlanQualificationTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDAdm__49C3F6B7" FromRole="AdmissionPlanTable" ToRole="AdmissionPlanQualificationTable" />
+          <NavigationProperty Name="EducationLevelTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDEdu__45F365D3" FromRole="AdmissionPlanTable" ToRole="EducationLevelTable" />
+          <NavigationProperty Name="FinancialBasisTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDFin__46E78A0C" FromRole="AdmissionPlanTable" ToRole="FinancialBasisTable" />
+          <NavigationProperty Name="FormOfTrainingTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDFor__44FF419A" FromRole="AdmissionPlanTable" ToRole="FormOfTrainingTable" />
+          <NavigationProperty Name="OrganizationTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDOrg__4316F928" FromRole="AdmissionPlanTable" ToRole="OrganizationTable" />
+          <NavigationProperty Name="SpecializationTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDSpe__440B1D61" FromRole="AdmissionPlanTable" ToRole="SpecializationTable" />
         </EntityType>
         <EntityType Name="EducationLevelTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AdmissionPlanTable" Relationship="Self.FK__Admission__IDEdu__45F365D3" FromRole="EducationLevelTable" ToRole="AdmissionPlanTable" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDEdu__45F365D3" FromRole="EducationLevelTable" ToRole="AdmissionPlanTable" />
         </EntityType>
         <EntityType Name="FinancialBasisTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AdmissionPlanTable" Relationship="Self.FK__Admission__IDFin__46E78A0C" FromRole="FinancialBasisTable" ToRole="AdmissionPlanTable" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDFin__46E78A0C" FromRole="FinancialBasisTable" ToRole="AdmissionPlanTable" />
         </EntityType>
         <EntityType Name="FormOfTrainingTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AdmissionPlanTable" Relationship="Self.FK__Admission__IDFor__44FF419A" FromRole="FormOfTrainingTable" ToRole="AdmissionPlanTable" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDFor__44FF419A" FromRole="FormOfTrainingTable" ToRole="AdmissionPlanTable" />
         </EntityType>
         <EntityType Name="OrganizationTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Prefix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prefix" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AdmissionPlanTable" Relationship="Self.FK__Admission__IDOrg__4316F928" FromRole="OrganizationTable" ToRole="AdmissionPlanTable" />
+          <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDOrg__4316F928" FromRole="OrganizationTable" ToRole="AdmissionPlanTable" />
         </EntityType>
         <EntityType Name="QualificationTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AdmissionPlanQualificationTable" Relationship="Self.FK__Admission__IDQua__4AB81AF0" FromRole="QualificationTable" ToRole="AdmissionPlanQualificationTable" />
-          <NavigationProperty Name="SpecializationQualificationTable" Relationship="Self.FK_SpecializationQualificationTable_QualificationTable" FromRole="QualificationTable" ToRole="SpecializationQualificationTable" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdmissionPlanQualificationTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDQua__4AB81AF0" FromRole="QualificationTable" ToRole="AdmissionPlanQualificationTable" />
+          <NavigationProperty Name="SpecializationQualificationTable" Relationship="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_QualificationTable" FromRole="QualificationTable" ToRole="SpecializationQualificationTable" />
         </EntityType>
         <EntityType Name="SpecializationQualificationTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDSpecialization" Type="Int32" Nullable="false" />
           <Property Name="IDQualification" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="QualificationTable" Relationship="Self.FK_SpecializationQualificationTable_QualificationTable" FromRole="SpecializationQualificationTable" ToRole="QualificationTable" />
-          <NavigationProperty Name="SpecializationTable" Relationship="Self.FK_SpecializationQualificationTable_SpecializationTable" FromRole="SpecializationQualificationTable" ToRole="SpecializationTable" />
+          <NavigationProperty Name="QualificationTable" Relationship="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_QualificationTable" FromRole="SpecializationQualificationTable" ToRole="QualificationTable" />
+          <NavigationProperty Name="SpecializationTable" Relationship="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_SpecializationTable" FromRole="SpecializationQualificationTable" ToRole="SpecializationTable" />
         </EntityType>
         <EntityType Name="SpecializationTable">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AdmissionPlanTable" Relationship="Self.FK__Admission__IDSpe__440B1D61" FromRole="SpecializationTable" ToRole="AdmissionPlanTable" />
-          <NavigationProperty Name="SpecializationQualificationTable" Relationship="Self.FK_SpecializationQualificationTable_SpecializationTable" FromRole="SpecializationTable" ToRole="SpecializationQualificationTable" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDSpe__440B1D61" FromRole="SpecializationTable" ToRole="AdmissionPlanTable" />
+          <NavigationProperty Name="SpecializationQualificationTable" Relationship="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_SpecializationTable" FromRole="SpecializationTable" ToRole="SpecializationQualificationTable" />
         </EntityType>
         <Association Name="FK__Admission__IDAdm__49C3F6B7">
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="1" />
-          <End Role="AdmissionPlanQualificationTable" Type="Self.AdmissionPlanQualificationTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanQualificationTable" Role="AdmissionPlanQualificationTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdmissionPlanTable">
               <PropertyRef Name="ID" />
@@ -350,8 +396,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDQua__4AB81AF0">
-          <End Role="QualificationTable" Type="Self.QualificationTable" Multiplicity="1" />
-          <End Role="AdmissionPlanQualificationTable" Type="Self.AdmissionPlanQualificationTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.QualificationTable" Role="QualificationTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanQualificationTable" Role="AdmissionPlanQualificationTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QualificationTable">
               <PropertyRef Name="ID" />
@@ -362,8 +408,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDEdu__45F365D3">
-          <End Role="EducationLevelTable" Type="Self.EducationLevelTable" Multiplicity="1" />
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.EducationLevelTable" Role="EducationLevelTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EducationLevelTable">
               <PropertyRef Name="ID" />
@@ -374,8 +420,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDFin__46E78A0C">
-          <End Role="FinancialBasisTable" Type="Self.FinancialBasisTable" Multiplicity="1" />
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.FinancialBasisTable" Role="FinancialBasisTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FinancialBasisTable">
               <PropertyRef Name="ID" />
@@ -386,8 +432,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDFor__44FF419A">
-          <End Role="FormOfTrainingTable" Type="Self.FormOfTrainingTable" Multiplicity="1" />
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.FormOfTrainingTable" Role="FormOfTrainingTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="FormOfTrainingTable">
               <PropertyRef Name="ID" />
@@ -398,8 +444,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDOrg__4316F928">
-          <End Role="OrganizationTable" Type="Self.OrganizationTable" Multiplicity="1" />
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.OrganizationTable" Role="OrganizationTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrganizationTable">
               <PropertyRef Name="ID" />
@@ -410,8 +456,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDSpe__440B1D61">
-          <End Role="SpecializationTable" Type="Self.SpecializationTable" Multiplicity="1" />
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.SpecializationTable" Role="SpecializationTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SpecializationTable">
               <PropertyRef Name="ID" />
@@ -422,8 +468,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SpecializationQualificationTable_QualificationTable">
-          <End Role="QualificationTable" Type="Self.QualificationTable" Multiplicity="1" />
-          <End Role="SpecializationQualificationTable" Type="Self.SpecializationQualificationTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.QualificationTable" Role="QualificationTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.SpecializationQualificationTable" Role="SpecializationQualificationTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QualificationTable">
               <PropertyRef Name="ID" />
@@ -434,8 +480,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SpecializationQualificationTable_SpecializationTable">
-          <End Role="SpecializationTable" Type="Self.SpecializationTable" Multiplicity="1" />
-          <End Role="SpecializationQualificationTable" Type="Self.SpecializationQualificationTable" Multiplicity="*" />
+          <End Type="BaseOfSpecializationsModel.SpecializationTable" Role="SpecializationTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.SpecializationQualificationTable" Role="SpecializationQualificationTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SpecializationTable">
               <PropertyRef Name="ID" />
@@ -445,53 +491,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BaseOfSpecializationsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdmissionPlanQualificationTable" EntityType="Self.AdmissionPlanQualificationTable" />
-          <EntitySet Name="AdmissionPlanTable" EntityType="Self.AdmissionPlanTable" />
-          <EntitySet Name="EducationLevelTable" EntityType="Self.EducationLevelTable" />
-          <EntitySet Name="FinancialBasisTable" EntityType="Self.FinancialBasisTable" />
-          <EntitySet Name="FormOfTrainingTable" EntityType="Self.FormOfTrainingTable" />
-          <EntitySet Name="OrganizationTable" EntityType="Self.OrganizationTable" />
-          <EntitySet Name="QualificationTable" EntityType="Self.QualificationTable" />
-          <EntitySet Name="SpecializationQualificationTable" EntityType="Self.SpecializationQualificationTable" />
-          <EntitySet Name="SpecializationTable" EntityType="Self.SpecializationTable" />
-          <AssociationSet Name="FK__Admission__IDAdm__49C3F6B7" Association="Self.FK__Admission__IDAdm__49C3F6B7">
-            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
-            <End Role="AdmissionPlanQualificationTable" EntitySet="AdmissionPlanQualificationTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Admission__IDQua__4AB81AF0" Association="Self.FK__Admission__IDQua__4AB81AF0">
-            <End Role="QualificationTable" EntitySet="QualificationTable" />
-            <End Role="AdmissionPlanQualificationTable" EntitySet="AdmissionPlanQualificationTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Admission__IDEdu__45F365D3" Association="Self.FK__Admission__IDEdu__45F365D3">
-            <End Role="EducationLevelTable" EntitySet="EducationLevelTable" />
-            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Admission__IDFin__46E78A0C" Association="Self.FK__Admission__IDFin__46E78A0C">
-            <End Role="FinancialBasisTable" EntitySet="FinancialBasisTable" />
-            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Admission__IDFor__44FF419A" Association="Self.FK__Admission__IDFor__44FF419A">
-            <End Role="FormOfTrainingTable" EntitySet="FormOfTrainingTable" />
-            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Admission__IDOrg__4316F928" Association="Self.FK__Admission__IDOrg__4316F928">
-            <End Role="OrganizationTable" EntitySet="OrganizationTable" />
-            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Admission__IDSpe__440B1D61" Association="Self.FK__Admission__IDSpe__440B1D61">
-            <End Role="SpecializationTable" EntitySet="SpecializationTable" />
-            <End Role="AdmissionPlanTable" EntitySet="AdmissionPlanTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SpecializationQualificationTable_QualificationTable" Association="Self.FK_SpecializationQualificationTable_QualificationTable">
-            <End Role="QualificationTable" EntitySet="QualificationTable" />
-            <End Role="SpecializationQualificationTable" EntitySet="SpecializationQualificationTable" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SpecializationQualificationTable_SpecializationTable" Association="Self.FK_SpecializationQualificationTable_SpecializationTable">
-            <End Role="SpecializationTable" EntitySet="SpecializationTable" />
-            <End Role="SpecializationQualificationTable" EntitySet="SpecializationQualificationTable" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -501,86 +500,86 @@
           <EntitySetMapping Name="AdmissionPlanQualificationTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.AdmissionPlanQualificationTable">
               <MappingFragment StoreEntitySet="AdmissionPlanQualificationTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IDAdmissionPlan" ColumnName="IDAdmissionPlan" />
                 <ScalarProperty Name="IDQualification" ColumnName="IDQualification" />
+                <ScalarProperty Name="IDAdmissionPlan" ColumnName="IDAdmissionPlan" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AdmissionPlanTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.AdmissionPlanTable">
               <MappingFragment StoreEntitySet="AdmissionPlanTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IDOrganization" ColumnName="IDOrganization" />
-                <ScalarProperty Name="IDSpecialization" ColumnName="IDSpecialization" />
-                <ScalarProperty Name="IDFormOfTraining" ColumnName="IDFormOfTraining" />
-                <ScalarProperty Name="PeriodOfStudy" ColumnName="PeriodOfStudy" />
-                <ScalarProperty Name="IDEducationLevel" ColumnName="IDEducationLevel" />
-                <ScalarProperty Name="IDFinancialBasisis" ColumnName="IDFinancialBasisis" />
-                <ScalarProperty Name="AdmissionPlan" ColumnName="AdmissionPlan" />
                 <ScalarProperty Name="EntranceTest" ColumnName="EntranceTest" />
+                <ScalarProperty Name="AdmissionPlan" ColumnName="AdmissionPlan" />
+                <ScalarProperty Name="IDFinancialBasisis" ColumnName="IDFinancialBasisis" />
+                <ScalarProperty Name="IDEducationLevel" ColumnName="IDEducationLevel" />
+                <ScalarProperty Name="PeriodOfStudy" ColumnName="PeriodOfStudy" />
+                <ScalarProperty Name="IDFormOfTraining" ColumnName="IDFormOfTraining" />
+                <ScalarProperty Name="IDSpecialization" ColumnName="IDSpecialization" />
+                <ScalarProperty Name="IDOrganization" ColumnName="IDOrganization" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EducationLevelTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.EducationLevelTable">
               <MappingFragment StoreEntitySet="EducationLevelTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FinancialBasisTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.FinancialBasisTable">
               <MappingFragment StoreEntitySet="FinancialBasisTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FormOfTrainingTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.FormOfTrainingTable">
               <MappingFragment StoreEntitySet="FormOfTrainingTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrganizationTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.OrganizationTable">
               <MappingFragment StoreEntitySet="OrganizationTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
                 <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QualificationTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.QualificationTable">
               <MappingFragment StoreEntitySet="QualificationTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpecializationQualificationTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.SpecializationQualificationTable">
               <MappingFragment StoreEntitySet="SpecializationQualificationTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IDSpecialization" ColumnName="IDSpecialization" />
                 <ScalarProperty Name="IDQualification" ColumnName="IDQualification" />
+                <ScalarProperty Name="IDSpecialization" ColumnName="IDSpecialization" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpecializationTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.SpecializationTable">
               <MappingFragment StoreEntitySet="SpecializationTable">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

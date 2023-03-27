@@ -5,24 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2bf1f8ea84d644be8d39a617ba08564c" Name="Diagram1">
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.AdmissionPlanQualificationTable" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.AdmissionPlanTable" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.EducationLevelTable" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.FinancialBasisTable" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.FormOfTrainingTable" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.OrganizationTable" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.QualificationTable" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.SpecializationQualificationTable" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BaseOfSpecializationsModel.SpecializationTable" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDAdm__49C3F6B7" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDQua__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDEdu__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDFin__46E78A0C" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDFor__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDOrg__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDSpe__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_QualificationTable" ManuallyRouted="false" />
-        <AssociationConnector Association="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_SpecializationTable" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.AdmissionPlanQualificationTable" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.AdmissionPlanTable" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.EducationLevelTable" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.FinancialBasisTable" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.FormOfTrainingTable" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.OrganizationTable" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.QualificationTable" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.SpecializationQualificationTable" Width="1.5" PointX="6" PointY="3.75" />
+        <EntityTypeShape EntityType="BaseOfSpecializationsModel.SpecializationTable" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDAdm__49C3F6B7" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDQua__4AB81AF0" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDEdu__45F365D3" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDFin__46E78A0C" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDFor__44FF419A" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDOrg__4316F928" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK__Admission__IDSpe__440B1D61" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_QualificationTable" />
+        <AssociationConnector Association="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_SpecializationTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
