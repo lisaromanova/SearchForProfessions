@@ -1,0 +1,31 @@
+﻿<Window x:Class="SearchForProfessions.OrganizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SearchForProfessions"
+        mc:Ignorable="d"
+        Title="Организация" Height="450" Width="600" Background="{StaticResource gradient}">
+    
+    <Grid VerticalAlignment="Center">
+        <StackPanel Width="400">
+            <TextBlock Text="Добавление специальности" Style="{StaticResource TextBlockHeader}"/>
+            <GroupBox Header="Аббревиатура" Style="{StaticResource GroupBoxBase}">
+                <TextBox Name="tbPrefix"/>
+            </GroupBox>
+            <GroupBox Header="Наименование" Style="{StaticResource GroupBoxBase}">
+                <TextBox Name="tbName"/>
+            </GroupBox>
+            <GroupBox Header="Телефон" Style="{StaticResource GroupBoxBase}">
+                <TextBox Name="tbPhone"/>
+            </GroupBox>
+            <GroupBox Header="Адрес" Style="{StaticResource GroupBoxBase}">
+                <TextBox Name="tbAdress"/>
+            </GroupBox>
+            <GroupBox Header="E-mail" Style="{StaticResource GroupBoxBase}">
+                <TextBox Name="tbEmail"/>
+            </GroupBox>
+            <Button Margin="0,10,0,0" Width="200" Content="Сохранить" Style="{StaticResource ButtonBase}" Name="btnSave"/>
+        </StackPanel>
+    </Grid>
+</Window>

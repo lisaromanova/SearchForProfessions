@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Квалификация" Height="350" Width="500" Background="{StaticResource gradient}">
+        Title="Квалификация" Height="350" MinHeight="350" Width="500" MinWidth="500" Background="{StaticResource gradient}">
     <Grid VerticalAlignment="Center">
         <StackPanel Width="300">
             <TextBlock Text="Добавление квалификации" Style="{StaticResource TextBlockHeader}"/>
