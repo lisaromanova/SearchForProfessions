@@ -14,7 +14,7 @@
         <ScrollViewer Background="White" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <Button Name="btnMain" FontSize="18" Content="Главная" Style="{StaticResource Button}" />
-                <Button Name="btnViewOrganization" FontSize="18" Content="Просмотр организаций" Style="{StaticResource Button}" />
+                <Button Name="btnViewOrganization" FontSize="18" Content="Просмотр организаций" Style="{StaticResource Button}" Click="btnViewOrganization_Click"/>
                 <Button Name="btnViewSpecialization" FontSize="18" Content="Просмотр специальностей" Style="{StaticResource Button}" Click="btnViewSpecialization_Click"/>
             </StackPanel>
         </ScrollViewer>

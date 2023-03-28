@@ -31,5 +31,10 @@ namespace SearchForProfessions
         {
             Clasees.FrameClass.frame.Navigate(new Pages.SpecializationPage());
         }
+
+        private void btnViewOrganization_Click(object sender, RoutedEventArgs e)
+        {
+            Clasees.FrameClass.frame.Navigate(new Pages.OrganizationPage());
+        }
     }
 }

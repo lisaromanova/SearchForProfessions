@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\OrganizationPartialClass.cs" />
+    <Compile Include="Pages\OrganizationPage.xaml.cs">
+      <DependentUpon>OrganizationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QualificationWindow.xaml.cs">
       <DependentUpon>QualificationWindow.xaml</DependentUpon>
     </Compile>
@@ -80,11 +84,15 @@
     </Compile>
     <Compile Include="Clasees\DataBaseClass.cs" />
     <Compile Include="Clasees\FrameClass.cs" />
-    <Compile Include="Clasees\SpecializationPartialClass.cs" />
+    <Compile Include="Model\SpecializationPartialClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\OrganizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SpecializationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
