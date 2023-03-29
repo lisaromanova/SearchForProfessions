@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SearchForProfessions.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,12 +29,19 @@ namespace SearchForProfessions.Pages
 
         private void btnAddOrganization_Click(object sender, RoutedEventArgs e)
         {
-
+            OrganizationWindow window = new OrganizationWindow();
+            window.ShowDialog();
+            Clasees.FrameClass.frame.Navigate(new OrganizationPage());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Button btn = sender as Button;
+            int id = Convert.ToInt32(btn.Uid);
+            OrganizationTable organization = Clasees.DataBaseClass.connect.OrganizationTable.FirstOrDefault(x=> x.ID == id);
+            OrganizationWindow window = new OrganizationWindow(organization);
+            window.ShowDialog();
+            Clasees.FrameClass.frame.Navigate(new OrganizationPage());
         }
     }
 }

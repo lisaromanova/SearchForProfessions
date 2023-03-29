@@ -95,7 +95,7 @@ namespace SearchForProfessions
         {
             if(Regex.IsMatch(code, "^\\d\\d.\\d\\d.\\d\\d$"))
             {
-                if (!string.IsNullOrEmpty(name))
+                if (!string.IsNullOrWhiteSpace(name))
                 {
                     if (collection.Count!=0)
                     {

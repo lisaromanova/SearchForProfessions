@@ -32,7 +32,7 @@ namespace SearchForProfessions
         /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
         bool CheckFields(string name)
         {
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrWhiteSpace(name))
             {
                 return true;
             }

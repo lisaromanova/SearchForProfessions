@@ -35,7 +35,7 @@
                                 <Run Text="Адрес:" FontWeight="Bold"/>
                                 <Run Text="{Binding Adress}"/>
                             </TextBlock>
-                            <TextBlock Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Visibility="{Binding EmailVisibility}" Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
                                 <Run Text="Email:" FontWeight="Bold"/>
                                 <Run Text="{Binding E_mail}"/>
                             </TextBlock>
