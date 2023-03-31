@@ -31,5 +31,50 @@ namespace SearchForProfessions.Model
                 }
             }
         }
+
+        public Visibility SiteVisibility
+        {
+            get
+            {
+                if (Site != null)
+                {
+                    return Visibility.Visible;
+                }
+                else
+                {
+                    return Visibility.Collapsed;
+                }
+            }
+        }
+
+        public Visibility HotlineVisibility
+        {
+            get
+            {
+                if (Hotline != null)
+                {
+                    return Visibility.Visible;
+                }
+                else
+                {
+                    return Visibility.Collapsed;
+                }
+            }
+        }
+
+        public string AvailableEnvironmentString
+        {
+            get
+            {
+                if ((bool)AvailableEnvironment)
+                {
+                    return "Да";
+                }
+                else
+                {
+                    return "Нет";
+                }
+            }
+        }
     }
 }

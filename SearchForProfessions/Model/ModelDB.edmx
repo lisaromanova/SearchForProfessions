@@ -58,6 +58,9 @@
           <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Adress" Type="nvarchar(max)" Nullable="false" />
           <Property Name="E-mail" Type="nvarchar(max)" />
+          <Property Name="Site" Type="nvarchar(max)" />
+          <Property Name="Hotline" Type="nvarchar(max)" />
+          <Property Name="AvailableEnvironment" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="QualificationTable">
           <Key>
@@ -352,6 +355,9 @@
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Adress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hotline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AvailableEnvironment" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AdmissionPlanTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDOrg__4316F928" FromRole="OrganizationTable" ToRole="AdmissionPlanTable" />
         </EntityType>
         <EntityType Name="QualificationTable">
@@ -491,7 +497,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -548,6 +554,9 @@
           <EntitySetMapping Name="OrganizationTable">
             <EntityTypeMapping TypeName="BaseOfSpecializationsModel.OrganizationTable">
               <MappingFragment StoreEntitySet="OrganizationTable">
+                <ScalarProperty Name="AvailableEnvironment" ColumnName="AvailableEnvironment" />
+                <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
                 <ScalarProperty Name="E_mail" ColumnName="E-mail" />
                 <ScalarProperty Name="Adress" ColumnName="Adress" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

@@ -37,6 +37,16 @@ namespace SearchForProfessions
             tbPhone.Text = organization.Phone;
             tbAdress.Text = organization.Adress;
             tbEmail.Text = organization.E_mail;
+            tbSite.Text = organization.Site;
+            tbHotline.Text = organization.Hotline;
+            if (organization.AvailableEnvironment)
+            {
+                rbYes.IsChecked = true;
+            }
+            else
+            {
+                rbNo.IsChecked = true;
+            }
         }
 
         /// <summary>
@@ -46,8 +56,10 @@ namespace SearchForProfessions
         /// <param name="name">Наименование организации</param>
         /// <param name="phone">Телефон организации</param>
         /// <param name="adress">Адрес организации</param>
+        /// <param name="checkNo">Радио кнопка нет в поле доступная среда</param>
+        /// <param name="checkYes">Радио кнопка да в поле доступная среда</param>
         /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
-        bool CheckFields(string prefix, string name, string phone, string adress)
+        bool CheckFields(string prefix, string name, string phone, string adress, bool checkYes, bool checkNo)
         {
             if (!string.IsNullOrWhiteSpace(prefix))
             {
@@ -57,7 +69,15 @@ namespace SearchForProfessions
                     {
                         if (!string.IsNullOrWhiteSpace(adress))
                         {
-                            return true;
+                            if (checkYes || checkNo)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Выберите доступную среду!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                                return false;
+                            }
                         }
                         else
                         {
@@ -86,7 +106,7 @@ namespace SearchForProfessions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckFields(tbPrefix.Text, tbName.Text, tbPhone.Text, tbAdress.Text))
+            if (CheckFields(tbPrefix.Text, tbName.Text, tbPhone.Text, tbAdress.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
             {
                 try
                 {
@@ -101,6 +121,22 @@ namespace SearchForProfessions
                     else
                     {
                         organization.E_mail = tbEmail.Text;
+                    }
+                    if (string.IsNullOrWhiteSpace(tbHotline.Text))
+                    {
+                        organization.Hotline = null;
+                    }
+                    else
+                    {
+                        organization.Hotline = tbEmail.Text;
+                    }
+                    if ((bool)rbYes.IsChecked)
+                    {
+                        organization.AvailableEnvironment = true;
+                    }
+                    if ((bool)rbNo.IsChecked)
+                    {
+                        organization.AvailableEnvironment = false;
                     }
                     Clasees.DataBaseClass.connect.SaveChanges();
                     MessageBox.Show("Данные успешно сохранены!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);

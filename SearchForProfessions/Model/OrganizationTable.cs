@@ -26,6 +26,9 @@ namespace SearchForProfessions.Model
         public string Phone { get; set; }
         public string Adress { get; set; }
         public string E_mail { get; set; }
+        public string Site { get; set; }
+        public string Hotline { get; set; }
+        public bool AvailableEnvironment { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdmissionPlanTable> AdmissionPlanTable { get; set; }

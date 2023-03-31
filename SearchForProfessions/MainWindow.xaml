@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Поиск профессий" Height="450" MinHeight="450" Width="800" MinWidth="800">
+        Title="Поиск профессий" Height="500" MinHeight="500" Width="800" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
         <RowDefinition Height="65"/>

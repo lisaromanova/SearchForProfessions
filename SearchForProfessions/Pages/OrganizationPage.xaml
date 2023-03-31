@@ -10,10 +10,22 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <ListView Name="listOrganization" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Orientation="Horizontal">
+            <GroupBox Width="300" Header="Сортировка" Style="{StaticResource GroupBoxBase}">
+                <ComboBox Name="cbSort" SelectionChanged="cbSort_SelectionChanged">
+                    <ComboBoxItem Content="По возрастанию"/>
+                    <ComboBoxItem Content="По убыванию"/>
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Width="300" Header="Поиск" Style="{StaticResource GroupBoxBase}">
+                <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
+            </GroupBox>
+        </StackPanel>
+        <ListView Grid.Row="1" Name="listOrganization" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -39,12 +51,25 @@
                                 <Run Text="Email:" FontWeight="Bold"/>
                                 <Run Text="{Binding E_mail}"/>
                             </TextBlock>
+                            <TextBlock Visibility="{Binding SiteVisibility}" Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                                <Run Text="Сайт:" FontWeight="Bold"/>
+                                <Run Name="rSite" Text="{Binding Site}" Style="{StaticResource runUrl}" Tag="{Binding Site}" MouseDown="rSite_MouseDown"/>
+                            </TextBlock>
+                            <TextBlock Visibility="{Binding HotlineVisibility}" Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                                <Run Text="Горячая линия БПОО:" FontWeight="Bold"/>
+                                <Run Text="{Binding Hotline}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                                <Run Text="Доступная среда:" FontWeight="Bold"/>
+                                <Run Text="{Binding AvailableEnvironmentString, Mode=OneWay}"/>
+                            </TextBlock>
                         </StackPanel>
                         <Button Name="btnEdit" Uid="{Binding ID}" Margin="10" Grid.Column="2" Content="Редактировать" Style="{StaticResource ButtonBase}" Width="130" HorizontalAlignment="Center" Click="btnEdit_Click"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="1" Name="btnAddOrganization" Content="Добавить организацию" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonBase}" Click="btnAddOrganization_Click"/>
+        <TextBlock Name="tbEmpty" Grid.Row="1" Text="Записи не найдены" FontSize="40" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="2" Name="btnAddOrganization" Content="Добавить организацию" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonBase}" Click="btnAddOrganization_Click"/>
     </Grid>
 </Page>

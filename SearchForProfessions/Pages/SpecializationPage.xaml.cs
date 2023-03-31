@@ -21,10 +21,12 @@ namespace SearchForProfessions.Pages
     /// </summary>
     public partial class SpecializationPage : Page
     {
+        List<SpecializationTable> specializations;
         public SpecializationPage()
         {
             InitializeComponent();
-            listSpecialization.ItemsSource = Clasees.DataBaseClass.connect.SpecializationTable.ToList();
+            specializations = Clasees.DataBaseClass.connect.SpecializationTable.ToList();
+            listSpecialization.ItemsSource = specializations;
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -42,6 +44,34 @@ namespace SearchForProfessions.Pages
             SpecializationWindow window = new SpecializationWindow();
             window.ShowDialog();
             Clasees.FrameClass.frame.Navigate(new SpecializationPage());
+        }
+
+        /// <summary>
+        /// Поиск специальностей
+        /// </summary>
+        void Search()
+        {
+            List<SpecializationTable> list = specializations.ToList();
+            if (!string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                list = list.Where(x => x.FullName.ToLower().Contains(tbSearch.Text.ToLower()) || x.Qualifications.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
+            }
+            if (list.Count > 0)
+            {
+                listSpecialization.Visibility = Visibility.Visible;
+                listSpecialization.ItemsSource = list;
+                tbEmpty.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                listSpecialization.Visibility = Visibility.Collapsed;
+                tbEmpty.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Search();
         }
     }
 }
