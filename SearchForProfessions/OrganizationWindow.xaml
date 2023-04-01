@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Организация" Height="500" MinHeight="500" Width="520" MinWidth="520" Background="{StaticResource gradient}">
+        Title="Организация" Height="650" MinHeight="650" Width="520" MinWidth="520" Background="{StaticResource gradient}">
     
     <Grid VerticalAlignment="Center">
-        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="0,20,0,20" Width="400">
                 <TextBlock Text="Добавление организации" Style="{StaticResource TextBlockHeader}"/>
                 <GroupBox Header="Аббревиатура *" Style="{StaticResource GroupBoxBase}">

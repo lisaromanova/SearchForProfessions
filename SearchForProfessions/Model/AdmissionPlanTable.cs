@@ -24,11 +24,11 @@ namespace SearchForProfessions.Model
         public int IDOrganization { get; set; }
         public int IDSpecialization { get; set; }
         public int IDFormOfTraining { get; set; }
-        public int PeriodOfStudy { get; set; }
+        public string PeriodOfStudy { get; set; }
         public int IDEducationLevel { get; set; }
         public int IDFinancialBasisis { get; set; }
         public int AdmissionPlan { get; set; }
-        public Nullable<bool> EntranceTest { get; set; }
+        public bool EntranceTest { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdmissionPlanQualificationTable> AdmissionPlanQualificationTable { get; set; }

@@ -25,6 +25,7 @@ namespace SearchForProfessions
             InitializeComponent();
             Clasees.DataBaseClass.connect = new Model.BaseOfSpecializationsEntities();
             Clasees.FrameClass.frame = frmLoad;
+            Clasees.FrameClass.frame.Navigate(new Pages.MainPage());
         }
 
         private void btnViewSpecialization_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,11 @@ namespace SearchForProfessions
         private void btnViewOrganization_Click(object sender, RoutedEventArgs e)
         {
             Clasees.FrameClass.frame.Navigate(new Pages.OrganizationPage());
+        }
+
+        private void btnMain_Click(object sender, RoutedEventArgs e)
+        {
+            Clasees.FrameClass.frame.Navigate(new Pages.MainPage());
         }
     }
 }

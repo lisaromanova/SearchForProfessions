@@ -37,29 +37,29 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Style="{StaticResource TextBlockBase}" Margin="10" Grid.Column="0" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{Binding FullName}"/>
+                        <TextBlock Style="{StaticResource TextBlockBase}" Margin="10" Grid.Column="0" VerticalAlignment="Center"  Text="{Binding FullName}"/>
                         <StackPanel Margin="10" Grid.Column="1" VerticalAlignment="Center">
-                            <TextBlock Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Style="{StaticResource TextBlockBase}">
                                 <Run Text="Телефон:" FontWeight="Bold"/>
                                 <Run Text="{Binding Phone}"/>
                             </TextBlock>
-                            <TextBlock Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Style="{StaticResource TextBlockBase}">
                                 <Run Text="Адрес:" FontWeight="Bold"/>
                                 <Run Text="{Binding Adress}"/>
                             </TextBlock>
-                            <TextBlock Visibility="{Binding EmailVisibility}" Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Visibility="{Binding EmailVisibility}" Style="{StaticResource TextBlockBase}">
                                 <Run Text="Email:" FontWeight="Bold"/>
                                 <Run Text="{Binding E_mail}"/>
                             </TextBlock>
-                            <TextBlock Visibility="{Binding SiteVisibility}" Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Visibility="{Binding SiteVisibility}" Style="{StaticResource TextBlockBase}">
                                 <Run Text="Сайт:" FontWeight="Bold"/>
                                 <Run Name="rSite" Text="{Binding Site}" Style="{StaticResource runUrl}" Tag="{Binding Site}" MouseDown="rSite_MouseDown"/>
                             </TextBlock>
-                            <TextBlock Visibility="{Binding HotlineVisibility}" Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Visibility="{Binding HotlineVisibility}" Style="{StaticResource TextBlockBase}">
                                 <Run Text="Горячая линия БПОО:" FontWeight="Bold"/>
                                 <Run Text="{Binding Hotline}"/>
                             </TextBlock>
-                            <TextBlock Style="{StaticResource TextBlockBase}" TextWrapping="WrapWithOverflow">
+                            <TextBlock Style="{StaticResource TextBlockBase}">
                                 <Run Text="Доступная среда:" FontWeight="Bold"/>
                                 <Run Text="{Binding AvailableEnvironmentString, Mode=OneWay}"/>
                             </TextBlock>

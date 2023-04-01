@@ -64,9 +64,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdmissionPlanWindow.xaml.cs">
+      <DependentUpon>AdmissionPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdmissionPlanPartialClass.cs" />
     <Compile Include="Model\OrganizationPartialClass.cs" />
     <Compile Include="OrganizationWindow.xaml.cs">
       <DependentUpon>OrganizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrganizationPage.xaml.cs">
       <DependentUpon>OrganizationPage.xaml</DependentUpon>
@@ -77,6 +84,10 @@
     <Compile Include="SpecializationWindow.xaml.cs">
       <DependentUpon>SpecializationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdmissionPlanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +104,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="OrganizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

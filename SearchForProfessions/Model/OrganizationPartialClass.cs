@@ -66,7 +66,7 @@ namespace SearchForProfessions.Model
         {
             get
             {
-                if ((bool)AvailableEnvironment)
+                if (AvailableEnvironment)
                 {
                     return "Да";
                 }

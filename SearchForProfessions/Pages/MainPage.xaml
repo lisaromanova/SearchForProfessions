@@ -1,0 +1,98 @@
+﻿<Page x:Class="SearchForProfessions.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SearchForProfessions.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Width="300" Header="Сортировка" Style="{StaticResource GroupBoxBase}">
+                    <ComboBox Name="cbSort">
+                        <ComboBoxItem Content="По возрастанию"/>
+                        <ComboBoxItem Content="По убыванию"/>
+                    </ComboBox>
+                </GroupBox>
+                <GroupBox Width="300" Header="Специальность" Style="{StaticResource GroupBoxBase}">
+                    <ComboBox Name="cbSpecialization" SelectionChanged="cbSpecialization_SelectionChanged"/>
+                </GroupBox>
+                <GroupBox Width="300" Header="Квалификация" Style="{StaticResource GroupBoxBase}">
+                    <ComboBox Name="cbQualification"/>
+                </GroupBox>
+                <GroupBox Width="300" Header="Поиск" Style="{StaticResource GroupBoxBase}">
+                    <TextBox Name="tbSearch"/>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <ListView Grid.Row="1" Name="listPlan" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.Background>
+                            <SolidColorBrush Color="White" Opacity="0.7"/>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center" Margin="10" Grid.Column="0">
+                            <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding OrganizationTable.FullName}"/>
+                            <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center" Text="{Binding OrganizationTable.Phone}"/>
+                            <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center" Text="{Binding OrganizationTable.Adress}"/>
+                            <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center">
+                                <Run Name="rSite" Tag="{Binding OrganizationTable.Site}" Style="{StaticResource runUrl}" Text="{Binding OrganizationTable.Site}" MouseDown="rSite_MouseDown"/>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Margin="10" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Специальность:" FontWeight="Bold"/>
+                                <Run Text="{Binding SpecializationTable.Name}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Квалификация:" FontWeight="Bold"/>
+                                <Run Text="{Binding Qualifications, Mode=OneWay}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Форма обучения:" FontWeight="Bold"/>
+                                <Run Text="{Binding FormOfTrainingTable.Name}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Период обучения:" FontWeight="Bold"/>
+                                <Run Text="{Binding PeriodOfStudy}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Уровень образования:" FontWeight="Bold"/>
+                                <Run Text="{Binding EducationLevelTable.Name}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Финансовая основа:" FontWeight="Bold"/>
+                                <Run Text="{Binding FinancialBasisTable.Name}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="План приема:" FontWeight="Bold"/>
+                                <Run Text="{Binding AdmissionPlan}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Вступительные испытания:" FontWeight="Bold"/>
+                                <Run Text="{Binding EntranceTestString, Mode=OneWay}"/>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button Name="btnEdit" Uid="{Binding ID}" Margin="10" Grid.Column="2" Content="Редактировать" Style="{StaticResource ButtonBase}" Width="130" HorizontalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock Name="tbEmpty" Grid.Row="1" Text="Записи не найдены" FontSize="40" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="2" Name="btnAddEntry" Content="Добавить запись" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonBase}"/>
+    </Grid>
+</Page>

@@ -11,9 +11,9 @@
         <RowDefinition Height="65"/>
         <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Background="White" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer Background="White" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <Button Name="btnMain" FontSize="18" Content="Главная" Style="{StaticResource Button}" />
+                <Button Name="btnMain" FontSize="18" Content="Главная" Style="{StaticResource Button}" Click="btnMain_Click"/>
                 <Button Name="btnViewOrganization" FontSize="18" Content="Просмотр организаций" Style="{StaticResource Button}" Click="btnViewOrganization_Click"/>
                 <Button Name="btnViewSpecialization" FontSize="18" Content="Просмотр специальностей" Style="{StaticResource Button}" Click="btnViewSpecialization_Click"/>
             </StackPanel>

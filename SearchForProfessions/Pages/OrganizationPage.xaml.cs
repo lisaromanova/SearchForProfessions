@@ -59,7 +59,15 @@ namespace SearchForProfessions.Pages
             }
             if (cbSort.SelectedIndex != -1)
             {
-                list = list.OrderBy(x => x.Name).ToList();
+                switch (cbSort.SelectedIndex)
+                {
+                    case 0:
+                        list = list.OrderBy(x => x.Name).ToList();
+                        break;
+                    case 1:
+                        list = list.OrderByDescending(x => x.Name).ToList();
+                        break;
+                }
             }
             if(list.Count > 0)
             {
@@ -90,7 +98,7 @@ namespace SearchForProfessions.Pages
             string site = (string)run.Tag;
             try
             {
-                System.Diagnostics.Process.Start(new ProcessStartInfo
+                Process.Start(new ProcessStartInfo
                 {
                     FileName = site,
                     UseShellExecute = true

@@ -21,11 +21,11 @@
           <Property Name="IDOrganization" Type="int" Nullable="false" />
           <Property Name="IDSpecialization" Type="int" Nullable="false" />
           <Property Name="IDFormOfTraining" Type="int" Nullable="false" />
-          <Property Name="PeriodOfStudy" Type="int" Nullable="false" />
+          <Property Name="PeriodOfStudy" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IDEducationLevel" Type="int" Nullable="false" />
           <Property Name="IDFinancialBasisis" Type="int" Nullable="false" />
           <Property Name="AdmissionPlan" Type="int" Nullable="false" />
-          <Property Name="EntranceTest" Type="bit" />
+          <Property Name="EntranceTest" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="EducationLevelTable">
           <Key>
@@ -309,11 +309,11 @@
           <Property Name="IDOrganization" Type="Int32" Nullable="false" />
           <Property Name="IDSpecialization" Type="Int32" Nullable="false" />
           <Property Name="IDFormOfTraining" Type="Int32" Nullable="false" />
-          <Property Name="PeriodOfStudy" Type="Int32" Nullable="false" />
+          <Property Name="PeriodOfStudy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IDEducationLevel" Type="Int32" Nullable="false" />
           <Property Name="IDFinancialBasisis" Type="Int32" Nullable="false" />
           <Property Name="AdmissionPlan" Type="Int32" Nullable="false" />
-          <Property Name="EntranceTest" Type="Boolean" />
+          <Property Name="EntranceTest" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="AdmissionPlanQualificationTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDAdm__49C3F6B7" FromRole="AdmissionPlanTable" ToRole="AdmissionPlanQualificationTable" />
           <NavigationProperty Name="EducationLevelTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDEdu__45F365D3" FromRole="AdmissionPlanTable" ToRole="EducationLevelTable" />
           <NavigationProperty Name="FinancialBasisTable" Relationship="BaseOfSpecializationsModel.FK__Admission__IDFin__46E78A0C" FromRole="AdmissionPlanTable" ToRole="FinancialBasisTable" />
