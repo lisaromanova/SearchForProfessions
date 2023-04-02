@@ -17,7 +17,7 @@
         <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
             <StackPanel Orientation="Horizontal">
                 <GroupBox Width="300" Header="Сортировка" Style="{StaticResource GroupBoxBase}">
-                    <ComboBox Name="cbSort">
+                    <ComboBox Name="cbSort" SelectionChanged="cbSort_SelectionChanged">
                         <ComboBoxItem Content="По возрастанию"/>
                         <ComboBoxItem Content="По убыванию"/>
                     </ComboBox>
@@ -26,10 +26,10 @@
                     <ComboBox Name="cbSpecialization" SelectionChanged="cbSpecialization_SelectionChanged"/>
                 </GroupBox>
                 <GroupBox Width="300" Header="Квалификация" Style="{StaticResource GroupBoxBase}">
-                    <ComboBox Name="cbQualification"/>
+                    <ComboBox Name="cbQualification" SelectionChanged="cbSort_SelectionChanged"/>
                 </GroupBox>
                 <GroupBox Width="300" Header="Поиск" Style="{StaticResource GroupBoxBase}">
-                    <TextBox Name="tbSearch"/>
+                    <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>
@@ -87,12 +87,12 @@
                                 <Run Text="{Binding EntranceTestString, Mode=OneWay}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button Name="btnEdit" Uid="{Binding ID}" Margin="10" Grid.Column="2" Content="Редактировать" Style="{StaticResource ButtonBase}" Width="130" HorizontalAlignment="Center"/>
+                        <Button Name="btnEdit" Uid="{Binding ID}" Margin="10" Grid.Column="2" Content="Редактировать" Style="{StaticResource ButtonBase}" Width="130" HorizontalAlignment="Center" Click="btnEdit_Click"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <TextBlock Name="tbEmpty" Grid.Row="1" Text="Записи не найдены" FontSize="40" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="2" Name="btnAddEntry" Content="Добавить запись" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonBase}"/>
+        <Button Grid.Row="2" Name="btnAddEntry" Content="Добавить запись" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonBase}" Click="btnAddEntry_Click"/>
     </Grid>
 </Page>

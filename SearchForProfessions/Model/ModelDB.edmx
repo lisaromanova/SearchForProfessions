@@ -86,7 +86,9 @@
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK__Admission__IDAdm__49C3F6B7">
-          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="1" />
+          <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AdmissionPlanQualificationTable" Type="Self.AdmissionPlanQualificationTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdmissionPlanTable">
@@ -134,7 +136,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDOrg__4316F928">
-          <End Role="OrganizationTable" Type="Self.OrganizationTable" Multiplicity="1" />
+          <End Role="OrganizationTable" Type="Self.OrganizationTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="AdmissionPlanTable" Type="Self.AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrganizationTable">
@@ -390,7 +394,9 @@
           <NavigationProperty Name="SpecializationQualificationTable" Relationship="BaseOfSpecializationsModel.FK_SpecializationQualificationTable_SpecializationTable" FromRole="SpecializationTable" ToRole="SpecializationQualificationTable" />
         </EntityType>
         <Association Name="FK__Admission__IDAdm__49C3F6B7">
-          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="BaseOfSpecializationsModel.AdmissionPlanQualificationTable" Role="AdmissionPlanQualificationTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AdmissionPlanTable">
@@ -450,7 +456,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Admission__IDOrg__4316F928">
-          <End Type="BaseOfSpecializationsModel.OrganizationTable" Role="OrganizationTable" Multiplicity="1" />
+          <End Type="BaseOfSpecializationsModel.OrganizationTable" Role="OrganizationTable" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="BaseOfSpecializationsModel.AdmissionPlanTable" Role="AdmissionPlanTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrganizationTable">

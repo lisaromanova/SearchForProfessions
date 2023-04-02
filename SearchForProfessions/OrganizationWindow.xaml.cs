@@ -47,6 +47,8 @@ namespace SearchForProfessions
             {
                 rbNo.IsChecked = true;
             }
+            btnDelete.Visibility = Visibility.Visible;
+            btnSave.HorizontalAlignment= HorizontalAlignment.Left;
         }
 
         /// <summary>
@@ -145,6 +147,26 @@ namespace SearchForProfessions
                 catch
                 {
                     MessageBox.Show("Ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (organization != null)
+            {
+                MessageBoxResult result = MessageBox.Show("Вы точно хотите удалить организацию?", "Удаление организации", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        Clasees.DataBaseClass.connect.OrganizationTable.Remove(organization);
+                        Clasees.DataBaseClass.connect.SaveChanges();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
