@@ -162,10 +162,12 @@ namespace SearchForProfessions
                     {
                         Clasees.DataBaseClass.connect.OrganizationTable.Remove(organization);
                         Clasees.DataBaseClass.connect.SaveChanges();
+                        MessageBox.Show("Организация удалена!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
                     }
                     catch
                     {
-                        MessageBox.Show("", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
