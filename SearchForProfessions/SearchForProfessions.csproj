@@ -67,6 +67,7 @@
     <Compile Include="AdmissionPlanWindow.xaml.cs">
       <DependentUpon>AdmissionPlanWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\CheckFieldsClasses.cs" />
     <Compile Include="Model\AdmissionPlanPartialClass.cs" />
     <Compile Include="Model\OrganizationPartialClass.cs" />
     <Compile Include="OrganizationWindow.xaml.cs">
@@ -96,8 +97,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Clasees\DataBaseClass.cs" />
-    <Compile Include="Clasees\FrameClass.cs" />
+    <Compile Include="Classes\DataBaseClass.cs" />
+    <Compile Include="Classes\FrameClass.cs" />
     <Compile Include="Model\SpecializationPartialClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

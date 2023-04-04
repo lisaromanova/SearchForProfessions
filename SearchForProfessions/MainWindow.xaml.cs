@@ -23,24 +23,24 @@ namespace SearchForProfessions
         public MainWindow()
         {
             InitializeComponent();
-            Clasees.DataBaseClass.connect = new Model.BaseOfSpecializationsEntities();
-            Clasees.FrameClass.frame = frmLoad;
-            Clasees.FrameClass.frame.Navigate(new Pages.MainPage());
+            Classes.DataBaseClass.connect = new Model.BaseOfSpecializationsEntities();
+            Classes.FrameClass.frame = frmLoad;
+            Classes.FrameClass.frame.Navigate(new Pages.MainPage());
         }
 
         private void btnViewSpecialization_Click(object sender, RoutedEventArgs e)
         {
-            Clasees.FrameClass.frame.Navigate(new Pages.SpecializationPage());
+            Classes.FrameClass.frame.Navigate(new Pages.SpecializationPage());
         }
 
         private void btnViewOrganization_Click(object sender, RoutedEventArgs e)
         {
-            Clasees.FrameClass.frame.Navigate(new Pages.OrganizationPage());
+            Classes.FrameClass.frame.Navigate(new Pages.OrganizationPage());
         }
 
         private void btnMain_Click(object sender, RoutedEventArgs e)
         {
-            Clasees.FrameClass.frame.Navigate(new Pages.MainPage());
+            Classes.FrameClass.frame.Navigate(new Pages.MainPage());
         }
     }
 }

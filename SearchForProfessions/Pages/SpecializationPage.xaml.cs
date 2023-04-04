@@ -25,7 +25,7 @@ namespace SearchForProfessions.Pages
         public SpecializationPage()
         {
             InitializeComponent();
-            specializations = Clasees.DataBaseClass.connect.SpecializationTable.ToList();
+            specializations = Classes.DataBaseClass.connect.SpecializationTable.ToList();
             listSpecialization.ItemsSource = specializations;
         }
 
@@ -33,17 +33,17 @@ namespace SearchForProfessions.Pages
         {
             Button btn = sender as Button;
             int id = Convert.ToInt32(btn.Uid);
-            SpecializationTable specialization = Clasees.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.ID == id);
+            SpecializationTable specialization = Classes.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.ID == id);
             SpecializationWindow window = new SpecializationWindow(specialization);
             window.ShowDialog();
-            Clasees.FrameClass.frame.Navigate(new SpecializationPage());
+            Classes.FrameClass.frame.Navigate(new SpecializationPage());
         }
 
         private void btnAddSpecialization_Click(object sender, RoutedEventArgs e)
         {
             SpecializationWindow window = new SpecializationWindow();
             window.ShowDialog();
-            Clasees.FrameClass.frame.Navigate(new SpecializationPage());
+            Classes.FrameClass.frame.Navigate(new SpecializationPage());
         }
 
         /// <summary>

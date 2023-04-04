@@ -25,7 +25,7 @@ namespace SearchForProfessions
         {
             InitializeComponent();
             organization = new OrganizationTable();
-            Clasees.DataBaseClass.connect.OrganizationTable.Add(organization);
+            Classes.DataBaseClass.connect.OrganizationTable.Add(organization);
         }
 
         public OrganizationWindow(OrganizationTable organization)
@@ -51,64 +51,11 @@ namespace SearchForProfessions
             btnSave.HorizontalAlignment= HorizontalAlignment.Left;
         }
 
-        /// <summary>
-        /// Проверка заполнения полей
-        /// </summary>
-        /// <param name="prefix">Аббревиатура организации</param>
-        /// <param name="name">Наименование организации</param>
-        /// <param name="phone">Телефон организации</param>
-        /// <param name="adress">Адрес организации</param>
-        /// <param name="checkNo">Радио кнопка нет в поле доступная среда</param>
-        /// <param name="checkYes">Радио кнопка да в поле доступная среда</param>
-        /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
-        bool CheckFields(string prefix, string name, string phone, string adress, bool checkYes, bool checkNo)
-        {
-            if (!string.IsNullOrWhiteSpace(prefix))
-            {
-                if (!string.IsNullOrWhiteSpace(name))
-                {
-                    if (!string.IsNullOrWhiteSpace(phone))
-                    {
-                        if (!string.IsNullOrWhiteSpace(adress))
-                        {
-                            if (checkYes || checkNo)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Выберите доступную среду!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Введите адрес организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Введите телефон организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Введите наименование организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Введите аббревиатуру организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-        }
+        
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckFields(tbPrefix.Text, tbName.Text, tbPhone.Text, tbAdress.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
+            if (Classes.CheckFieldsClasses.CheckFieldsOrganization(tbPrefix.Text, tbName.Text, tbPhone.Text, tbAdress.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
             {
                 try
                 {
@@ -140,7 +87,7 @@ namespace SearchForProfessions
                     {
                         organization.AvailableEnvironment = false;
                     }
-                    Clasees.DataBaseClass.connect.SaveChanges();
+                    Classes.DataBaseClass.connect.SaveChanges();
                     MessageBox.Show("Данные успешно сохранены!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                     Close();
                 }
@@ -160,8 +107,8 @@ namespace SearchForProfessions
                 {
                     try
                     {
-                        Clasees.DataBaseClass.connect.OrganizationTable.Remove(organization);
-                        Clasees.DataBaseClass.connect.SaveChanges();
+                        Classes.DataBaseClass.connect.OrganizationTable.Remove(organization);
+                        Classes.DataBaseClass.connect.SaveChanges();
                         MessageBox.Show("Организация удалена!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
                     }

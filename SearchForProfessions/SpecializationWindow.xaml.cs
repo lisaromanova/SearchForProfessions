@@ -25,11 +25,11 @@ namespace SearchForProfessions
         public SpecializationWindow()
         {
             InitializeComponent();
-            cbQualification.ItemsSource = Clasees.DataBaseClass.connect.QualificationTable.ToList();
+            cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.ToList();
             cbQualification.SelectedValuePath = "ID";
             cbQualification.DisplayMemberPath = "Name";
             specializationTable = new SpecializationTable();
-            Clasees.DataBaseClass.connect.SpecializationTable.Add(specializationTable);
+            Classes.DataBaseClass.connect.SpecializationTable.Add(specializationTable);
         }
 
         List<QualificationTable> qualifications = new List<QualificationTable>();
@@ -37,7 +37,7 @@ namespace SearchForProfessions
         public SpecializationWindow(SpecializationTable specialization)
         {
             InitializeComponent();
-            cbQualification.ItemsSource = Clasees.DataBaseClass.connect.QualificationTable.ToList();
+            cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.ToList();
             cbQualification.SelectedValuePath = "ID";
             cbQualification.DisplayMemberPath = "Name";
             tbCode.Text = specialization.Code;
@@ -56,7 +56,7 @@ namespace SearchForProfessions
             QualificationWindow window = new QualificationWindow();
             window.ShowDialog();
             cbQualification.ItemsSource = null;
-            cbQualification.ItemsSource = Clasees.DataBaseClass.connect.QualificationTable.ToList();
+            cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.ToList();
         }
 
         private void cbQualification_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -84,45 +84,9 @@ namespace SearchForProfessions
             lbQualification.ItemsSource = qualifications;
         }
 
-        /// <summary>
-        /// Проверка заполнения полей
-        /// </summary>
-        /// <param name="code">Шифр специальности</param>
-        /// <param name="name">Наименование специальности</param>
-        /// <param name="collection">Список квалификаций</param>
-        /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
-        bool CheckFields(string code, string name, List<QualificationTable> collection)
-        {
-            if(Regex.IsMatch(code, "^\\d\\d.\\d\\d.\\d\\d$"))
-            {
-                if (!string.IsNullOrWhiteSpace(name))
-                {
-                    if (collection.Count!=0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Выберите квалификацию!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Введите наименование специальности!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Введите корректно шифр специальности!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-        }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if(CheckFields(tbCode.Text, tbName.Text, qualifications))
+            if(Classes.CheckFieldsClasses.CheckFieldsSpecilization(tbCode.Text, tbName.Text, qualifications))
             {
                 try
                 {
@@ -133,18 +97,18 @@ namespace SearchForProfessions
                         List<SpecializationQualificationTable> list = specializationTable.SpecializationQualificationTable.ToList();
                         foreach (SpecializationQualificationTable table in list)
                         {
-                            Clasees.DataBaseClass.connect.SpecializationQualificationTable.Remove(table);
+                            Classes.DataBaseClass.connect.SpecializationQualificationTable.Remove(table);
                         }
                     }
                     foreach (QualificationTable qualification in qualifications)
                     {
-                        Clasees.DataBaseClass.connect.SpecializationQualificationTable.Add(new SpecializationQualificationTable()
+                        Classes.DataBaseClass.connect.SpecializationQualificationTable.Add(new SpecializationQualificationTable()
                         {
                             IDSpecialization = specializationTable.ID,
                             IDQualification = qualification.ID
                         });
                     }
-                    Clasees.DataBaseClass.connect.SaveChanges();
+                    Classes.DataBaseClass.connect.SaveChanges();
                     MessageBox.Show("Данные успешно сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                     Close();
                 }

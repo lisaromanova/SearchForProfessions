@@ -26,7 +26,7 @@ namespace SearchForProfessions.Pages
         public OrganizationPage()
         {
             InitializeComponent();
-            organizations = Clasees.DataBaseClass.connect.OrganizationTable.ToList();
+            organizations = Classes.DataBaseClass.connect.OrganizationTable.ToList();
             listOrganization.ItemsSource = organizations;
         }
 
@@ -34,17 +34,17 @@ namespace SearchForProfessions.Pages
         {
             OrganizationWindow window = new OrganizationWindow();
             window.ShowDialog();
-            Clasees.FrameClass.frame.Navigate(new OrganizationPage());
+            Classes.FrameClass.frame.Navigate(new OrganizationPage());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
             int id = Convert.ToInt32(btn.Uid);
-            OrganizationTable organization = Clasees.DataBaseClass.connect.OrganizationTable.FirstOrDefault(x=> x.ID == id);
+            OrganizationTable organization = Classes.DataBaseClass.connect.OrganizationTable.FirstOrDefault(x=> x.ID == id);
             OrganizationWindow window = new OrganizationWindow(organization);
             window.ShowDialog();
-            Clasees.FrameClass.frame.Navigate(new OrganizationPage());
+            Classes.FrameClass.frame.Navigate(new OrganizationPage());
         }
 
         /// <summary>

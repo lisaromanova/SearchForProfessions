@@ -28,7 +28,7 @@ namespace SearchForProfessions
             InitializeComponent();
             FillComboBox();
             admissionPlan = new AdmissionPlanTable();
-            Clasees.DataBaseClass.connect.AdmissionPlanTable.Add(admissionPlan);
+            Classes.DataBaseClass.connect.AdmissionPlanTable.Add(admissionPlan);
         }
 
         public AdmissionPlanWindow(AdmissionPlanTable admissionPlan)
@@ -52,8 +52,8 @@ namespace SearchForProfessions
             {
                 rbNo.IsChecked = true;
             }
-            List<SpecializationQualificationTable> specializationQualifications = admissionPlan.SpecializationTable.SpecializationQualificationTable.ToList();
-            foreach (SpecializationQualificationTable table in specializationQualifications)
+            List<AdmissionPlanQualificationTable> admissionQualification = admissionPlan.AdmissionPlanQualificationTable.ToList();
+            foreach (AdmissionPlanQualificationTable table in admissionQualification)
             {
                 qualifications.Add(table.QualificationTable);
             }
@@ -66,7 +66,7 @@ namespace SearchForProfessions
         /// </summary>
         void FillQualifications()
         {
-            List<QualificationTable> qualifications = Clasees.DataBaseClass.connect.QualificationTable.OrderBy(x => x.Name).ToList();
+            List<QualificationTable> qualifications = Classes.DataBaseClass.connect.QualificationTable.OrderBy(x => x.Name).ToList();
             foreach (QualificationTable qualification in qualifications)
             {
                 cbQualification.Items.Add(qualification.Name);
@@ -78,20 +78,20 @@ namespace SearchForProfessions
         /// </summary>
         void FillComboBox()
         {
-            cbOrganization.ItemsSource = Clasees.DataBaseClass.connect.OrganizationTable.ToList().OrderBy(x=> x.FullName);
+            cbOrganization.ItemsSource = Classes.DataBaseClass.connect.OrganizationTable.ToList().OrderBy(x=> x.FullName);
             cbOrganization.SelectedValuePath = "ID";
             cbOrganization.DisplayMemberPath = "FullName";
-            cbSpecialization.ItemsSource = Clasees.DataBaseClass.connect.SpecializationTable.ToList().OrderBy(x => x.Name);
+            cbSpecialization.ItemsSource = Classes.DataBaseClass.connect.SpecializationTable.ToList().OrderBy(x => x.Name);
             cbSpecialization.SelectedValuePath = "ID";
             cbSpecialization.DisplayMemberPath = "Name";
             FillQualifications();
-            cbFormOfTraining.ItemsSource = Clasees.DataBaseClass.connect.FormOfTrainingTable.ToList();
+            cbFormOfTraining.ItemsSource = Classes.DataBaseClass.connect.FormOfTrainingTable.ToList();
             cbFormOfTraining.SelectedValuePath = "ID";
             cbFormOfTraining.DisplayMemberPath = "Name";
-            cbFinancialBase.ItemsSource = Clasees.DataBaseClass.connect.FinancialBasisTable.ToList();
+            cbFinancialBase.ItemsSource = Classes.DataBaseClass.connect.FinancialBasisTable.ToList();
             cbFinancialBase.SelectedValuePath = "ID";
             cbFinancialBase.DisplayMemberPath = "Name";
-            cbEducationLevel.ItemsSource = Clasees.DataBaseClass.connect.EducationLevelTable.ToList();
+            cbEducationLevel.ItemsSource = Classes.DataBaseClass.connect.EducationLevelTable.ToList();
             cbEducationLevel.SelectedValuePath = "ID";
             cbEducationLevel.DisplayMemberPath = "Name";
         }
@@ -99,11 +99,11 @@ namespace SearchForProfessions
         private void cbSpecialization_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             gpQualifications.Visibility = Visibility.Visible;
-            SpecializationTable specialization = Clasees.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.ID == (int)cbSpecialization.SelectedValue);
+            SpecializationTable specialization = Classes.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.ID == (int)cbSpecialization.SelectedValue);
             cbQualification.Items.Clear();
             if (specialization != null)
             {
-                List<string> qualifications = Clasees.DataBaseClass.connect.SpecializationQualificationTable.Where(x => x.IDSpecialization == specialization.ID).Select(x => x.QualificationTable.Name).ToList();
+                List<string> qualifications = Classes.DataBaseClass.connect.SpecializationQualificationTable.Where(x => x.IDSpecialization == specialization.ID).Select(x => x.QualificationTable.Name).ToList();
                 qualifications.Sort();
                 foreach (string qualification in qualifications)
                 {
@@ -128,7 +128,7 @@ namespace SearchForProfessions
             }
             else
             {
-                QualificationTable qualification = Clasees.DataBaseClass.connect.QualificationTable.FirstOrDefault(x => x.Name == (string)cbQualification.SelectedValue);
+                QualificationTable qualification = Classes.DataBaseClass.connect.QualificationTable.FirstOrDefault(x => x.Name == (string)cbQualification.SelectedValue);
                 qualifications.Add(qualification);
                 lbQualification.ItemsSource = null;
                 lbQualification.ItemsSource = qualifications;
@@ -145,100 +145,11 @@ namespace SearchForProfessions
             lbQualification.ItemsSource = qualifications;
         }
 
-        /// <summary>
-        /// Проверка заполнения полей
-        /// </summary>
-        /// <param name="organization">Организация</param>
-        /// <param name="specialization">Специальность</param>
-        /// <param name="qualifications">Список квалификаций</param>
-        /// <param name="form">Форма обучения</param>
-        /// <param name="finance">Финансовая основа</param>
-        /// <param name="level">Уровень образования</param>
-        /// <param name="period">Период обучения</param>
-        /// <param name="plan">План приема</param>
-        /// <param name="checkYes">Радио кнопка да в поле вступительные испытания</param>
-        /// <param name="checkNo">Радио кнопка нет в поле вступительные испытания</param>
-        /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
-        bool CheckFields(int organization, int specialization, List<QualificationTable> qualifications, int form, int finance, int level, string period, string plan, bool checkYes, bool checkNo)
-        {
-            if (organization != 1)
-            {
-                if (specialization != 1)
-                {
-                    if (qualifications.Count > 0)
-                    {
-                        if (form != -1)
-                        {
-                            if (Regex.IsMatch(period, "^\\d+ г\\. \\d+ мес\\.$"))
-                            {
-                                if (level != -1)
-                                {
-                                    if (finance != -1)
-                                    {
-                                        if (Regex.IsMatch(plan, @"^\d+$"))
-                                        {
-                                            if (checkYes || checkNo)
-                                            {
-                                                return true;
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Выберите наличие вступительных испытаний!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                                return false;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Введите план приема!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                            return false;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Выберите финансовую основу!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                        return false;
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Выберите уровень образования!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                    return false;
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Введите период обучения корректно!\nПример 3 г. 10 мес.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Выберите форму обучения!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Выберите квалификацию!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Выберите специальность!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Выберите организацию!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-        }
+        
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckFields(cbOrganization.SelectedIndex, cbSpecialization.SelectedIndex, qualifications, cbFormOfTraining.SelectedIndex, cbFinancialBase.SelectedIndex, cbEducationLevel.SelectedIndex, tbPeriodOfStudy.Text, tbAdmissionPlan.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
+            if (Classes.CheckFieldsClasses.CheckFieldsAdmissionPlan(cbOrganization.SelectedIndex, cbSpecialization.SelectedIndex, qualifications, cbFormOfTraining.SelectedIndex, cbFinancialBase.SelectedIndex, cbEducationLevel.SelectedIndex, tbPeriodOfStudy.Text, tbAdmissionPlan.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
             {
                 try
                 {
@@ -257,7 +168,23 @@ namespace SearchForProfessions
                     {
                         admissionPlan.EntranceTest = false;
                     }
-                    Clasees.DataBaseClass.connect.SaveChanges();
+                    if (admissionPlan.ID != 0)
+                    {
+                        List<AdmissionPlanQualificationTable> list = admissionPlan.AdmissionPlanQualificationTable.ToList();
+                        foreach (AdmissionPlanQualificationTable table in list)
+                        {
+                            Classes.DataBaseClass.connect.AdmissionPlanQualificationTable.Remove(table);
+                        }
+                    }
+                    foreach (QualificationTable qualification in qualifications)
+                    {
+                        Classes.DataBaseClass.connect.AdmissionPlanQualificationTable.Add(new AdmissionPlanQualificationTable()
+                        {
+                            IDAdmissionPlan = admissionPlan.ID,
+                            IDQualification = qualification.ID
+                        });
+                    }
+                    Classes.DataBaseClass.connect.SaveChanges();
                     MessageBox.Show("Данные успешно сохранены!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                     Close();
                 }
@@ -277,8 +204,8 @@ namespace SearchForProfessions
                 {
                     try
                     {
-                        Clasees.DataBaseClass.connect.AdmissionPlanTable.Remove(admissionPlan);
-                        Clasees.DataBaseClass.connect.SaveChanges();
+                        Classes.DataBaseClass.connect.AdmissionPlanTable.Remove(admissionPlan);
+                        Classes.DataBaseClass.connect.SaveChanges();
                         MessageBox.Show("Запись удалена!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
                     }

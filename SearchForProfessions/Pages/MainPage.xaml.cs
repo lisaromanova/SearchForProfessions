@@ -26,7 +26,7 @@ namespace SearchForProfessions.Pages
         public MainPage()
         {
             InitializeComponent();
-            List<SpecializationTable> specializations = Clasees.DataBaseClass.connect.SpecializationTable.OrderBy(x=> x.Name).ToList();
+            List<SpecializationTable> specializations = Classes.DataBaseClass.connect.SpecializationTable.OrderBy(x=> x.Name).ToList();
             cbSpecialization.Items.Add("Все специальности");
             foreach(SpecializationTable specialization in specializations)
             {
@@ -34,7 +34,7 @@ namespace SearchForProfessions.Pages
             }
             cbQualification.Items.Add("Все квалификации");
             FillQualifications();
-            admissionPlanList = Clasees.DataBaseClass.connect.AdmissionPlanTable.ToList();
+            admissionPlanList = Classes.DataBaseClass.connect.AdmissionPlanTable.ToList();
             listPlan.ItemsSource = admissionPlanList;
         }
 
@@ -43,7 +43,7 @@ namespace SearchForProfessions.Pages
         /// </summary>
         void FillQualifications()
         {
-            List<QualificationTable> qualifications = Clasees.DataBaseClass.connect.QualificationTable.OrderBy(x=> x.Name).ToList();
+            List<QualificationTable> qualifications = Classes.DataBaseClass.connect.QualificationTable.OrderBy(x=> x.Name).ToList();
             foreach (QualificationTable qualification in qualifications)
             {
                 cbQualification.Items.Add(qualification.Name);
@@ -70,12 +70,12 @@ namespace SearchForProfessions.Pages
 
         private void cbSpecialization_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SpecializationTable specialization = Clasees.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.Name == (string)cbSpecialization.SelectedValue);
+            SpecializationTable specialization = Classes.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.Name == (string)cbSpecialization.SelectedValue);
             cbQualification.Items.Clear();
             cbQualification.Items.Add("Все квалификации");
             if (specialization!= null)
             {
-                List<string> qualifications = Clasees.DataBaseClass.connect.SpecializationQualificationTable.Where(x => x.IDSpecialization == specialization.ID).Select(x => x.QualificationTable.Name).ToList();
+                List<string> qualifications = Classes.DataBaseClass.connect.SpecializationQualificationTable.Where(x => x.IDSpecialization == specialization.ID).Select(x => x.QualificationTable.Name).ToList();
                 qualifications.Sort();
                 foreach (string qualification in qualifications)
                 {
@@ -142,17 +142,17 @@ namespace SearchForProfessions.Pages
         {
             AdmissionPlanWindow window = new AdmissionPlanWindow();
             window.ShowDialog();
-            Clasees.FrameClass.frame.Navigate(new MainPage());
+            Classes.FrameClass.frame.Navigate(new MainPage());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
             int id = Convert.ToInt32(btn.Uid);
-            AdmissionPlanTable admissionPlan = Clasees.DataBaseClass.connect.AdmissionPlanTable.FirstOrDefault(x => x.ID == id);
+            AdmissionPlanTable admissionPlan = Classes.DataBaseClass.connect.AdmissionPlanTable.FirstOrDefault(x => x.ID == id);
             AdmissionPlanWindow window = new AdmissionPlanWindow(admissionPlan);
             window.ShowDialog();
-            Clasees.FrameClass.frame.Navigate(new MainPage());
+            Classes.FrameClass.frame.Navigate(new MainPage());
         }
     }
 }

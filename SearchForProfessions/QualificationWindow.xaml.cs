@@ -25,27 +25,9 @@ namespace SearchForProfessions
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Проверка заполнения полей
-        /// </summary>
-        /// <param name="name">Наименование квалификации</param>
-        /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
-        bool CheckFields(string name)
-        {
-            if (!string.IsNullOrWhiteSpace(name))
-            {
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Введите наименование квалификации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-        }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckFields(tbName.Text))
+            if (Classes.CheckFieldsClasses.CheckFieldsQualification(tbName.Text))
             {
                 try
                 {
@@ -53,8 +35,8 @@ namespace SearchForProfessions
                     {
                         Name = tbName.Text,
                     };
-                    Clasees.DataBaseClass.connect.QualificationTable.Add(qualification);
-                    Clasees.DataBaseClass.connect.SaveChanges();
+                    Classes.DataBaseClass.connect.QualificationTable.Add(qualification);
+                    Classes.DataBaseClass.connect.SaveChanges();
                     MessageBox.Show("Данные успешно сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
                     Close();
                 }
