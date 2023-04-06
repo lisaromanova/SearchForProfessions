@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="План приема" Height="700" MinHeight="700" Width="540" MinWidth="540" Background="{StaticResource gradient}">
+        Title="План приема" Height="700" MinHeight="700" Width="540" MinWidth="540" Background="{StaticResource gradient}" Icon="\Resources\logo.png">
 
     <Grid VerticalAlignment="Center">
         <ScrollViewer VerticalScrollBarVisibility="Auto">

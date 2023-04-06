@@ -23,10 +23,10 @@
                     </ComboBox>
                 </GroupBox>
                 <GroupBox Width="300" Header="Специальность" Style="{StaticResource GroupBoxBase}">
-                    <ComboBox Name="cbSpecialization" SelectionChanged="cbSpecialization_SelectionChanged"/>
+                    <ComboBox IsEditable="True" Name="cbSpecialization" SelectionChanged="cbSpecialization_SelectionChanged"/>
                 </GroupBox>
                 <GroupBox Width="300" Header="Квалификация" Style="{StaticResource GroupBoxBase}">
-                    <ComboBox Name="cbQualification" SelectionChanged="cbSort_SelectionChanged"/>
+                    <ComboBox IsEditable="True" Name="cbQualification" SelectionChanged="cbSort_SelectionChanged"/>
                 </GroupBox>
                 <GroupBox Width="300" Header="Поиск" Style="{StaticResource GroupBoxBase}">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>

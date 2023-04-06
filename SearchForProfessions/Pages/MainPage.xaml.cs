@@ -115,7 +115,11 @@ namespace SearchForProfessions.Pages
             {
                 list = list.Where(x => x.Qualifications.ToLower().Contains(cbQualification.SelectedValue.ToString().ToLower())).ToList();
             }
-            if(list.Count > 0)
+            if (!string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                list = list.Where(x => x.OrganizationTable.FullName.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
+            }
+            if (list.Count > 0)
             {
                 listPlan.Visibility = Visibility.Visible;
                 tbEmpty.Visibility = Visibility.Collapsed;
@@ -135,7 +139,7 @@ namespace SearchForProfessions.Pages
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Filter();
         }
 
         private void btnAddEntry_Click(object sender, RoutedEventArgs e)

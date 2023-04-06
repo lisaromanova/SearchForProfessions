@@ -16,5 +16,12 @@ namespace UnitTestProject
             bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", "75", true, false);
             Assert.IsTrue(actual);
         }
+
+        [TestMethod]
+        public void CheckFieldsAdmissionPlan_IsFalse()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, " 3 г. 10 мес. ", "75", true, false);
+            Assert.IsFalse(actual);
+        }
     }
 }

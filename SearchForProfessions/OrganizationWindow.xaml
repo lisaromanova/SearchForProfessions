@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Организация" Height="700" MinHeight="700" Width="520" MinWidth="520" Background="{StaticResource gradient}">
+        Title="Организация" Height="700" MinHeight="700" Width="520" MinWidth="520" Background="{StaticResource gradient}" Icon="\Resources\logo.png">
     
     <Grid VerticalAlignment="Center">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
