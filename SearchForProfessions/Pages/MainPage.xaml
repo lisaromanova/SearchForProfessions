@@ -28,7 +28,7 @@
                 <GroupBox Width="300" Header="Квалификация" Style="{StaticResource GroupBoxBase}">
                     <ComboBox IsEditable="True" Name="cbQualification" SelectionChanged="cbSort_SelectionChanged"/>
                 </GroupBox>
-                <GroupBox Width="300" Header="Поиск" Style="{StaticResource GroupBoxBase}">
+                <GroupBox Width="300" Header="Организация" Style="{StaticResource GroupBoxBase}">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
                 </GroupBox>
             </StackPanel>
