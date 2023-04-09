@@ -24,13 +24,12 @@ namespace SearchForProfessions
         public OrganizationWindow()
         {
             InitializeComponent();
-            organization = new OrganizationTable();
-            Classes.DataBaseClass.connect.OrganizationTable.Add(organization);
         }
 
         public OrganizationWindow(OrganizationTable organization)
         {
             InitializeComponent();
+            tbTitle.Text = "Изменение организации";
             this.organization = organization;
             tbPrefix.Text = organization.Prefix;
             tbName.Text = organization.Name;
@@ -59,6 +58,11 @@ namespace SearchForProfessions
             {
                 try
                 {
+                    if(organization == null)
+                    {
+                        organization = new OrganizationTable();
+                        Classes.DataBaseClass.connect.OrganizationTable.Add(organization);
+                    }
                     organization.Prefix = tbPrefix.Text;
                     organization.Name = tbName.Text;
                     organization.Phone = tbPhone.Text;

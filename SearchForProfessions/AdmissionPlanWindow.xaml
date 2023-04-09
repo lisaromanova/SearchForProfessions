@@ -10,7 +10,7 @@
     <Grid VerticalAlignment="Center">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="0,20,0,20" Width="410">
-                <TextBlock Text="Добавление плана приема" Style="{StaticResource TextBlockHeader}"/>
+                <TextBlock Name="tbTitle" Text="Добавление плана приема" Style="{StaticResource TextBlockHeader}"/>
                 <GroupBox Header="Организация *" Style="{StaticResource GroupBoxBase}">
                     <ComboBox Name="cbOrganization"/>
                 </GroupBox>

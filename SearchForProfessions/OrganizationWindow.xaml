@@ -10,7 +10,7 @@
     <Grid VerticalAlignment="Center">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="0,20,0,20" Width="410">
-                <TextBlock Text="Добавление организации" Style="{StaticResource TextBlockHeader}"/>
+                <TextBlock Name="tbTitle" Text="Добавление организации" Style="{StaticResource TextBlockHeader}"/>
                 <GroupBox Header="Аббревиатура *" Style="{StaticResource GroupBoxBase}">
                     <TextBox Name="tbPrefix"/>
                 </GroupBox>
@@ -32,7 +32,7 @@
                 <GroupBox Header="Горячая линия БПОО" Style="{StaticResource GroupBoxBase}">
                     <TextBox Name="tbHotline"/>
                 </GroupBox>
-                <GroupBox Header="Доступная среда" Style="{StaticResource GroupBoxBase}">
+                <GroupBox Header="Доступная среда *" Style="{StaticResource GroupBoxBase}">
                     <StackPanel Orientation="Horizontal">
                         <RadioButton Margin="5" Name="rbYes" Content="Да"/>
                         <RadioButton Margin="5" Name="rbNo" Content="Нет"/>

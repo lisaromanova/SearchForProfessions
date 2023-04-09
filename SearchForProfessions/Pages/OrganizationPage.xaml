@@ -48,7 +48,7 @@
                                 <Run Text="{Binding Adress}"/>
                             </TextBlock>
                             <TextBlock Visibility="{Binding EmailVisibility}" Style="{StaticResource TextBlockBase}">
-                                <Run Text="Email:" FontWeight="Bold"/>
+                                <Run Text="E-mail:" FontWeight="Bold"/>
                                 <Run Text="{Binding E_mail}"/>
                             </TextBlock>
                             <TextBlock Visibility="{Binding SiteVisibility}" Style="{StaticResource TextBlockBase}">

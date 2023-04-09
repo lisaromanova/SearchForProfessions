@@ -27,13 +27,12 @@ namespace SearchForProfessions
         {
             InitializeComponent();
             FillComboBox();
-            admissionPlan = new AdmissionPlanTable();
-            Classes.DataBaseClass.connect.AdmissionPlanTable.Add(admissionPlan);
         }
 
         public AdmissionPlanWindow(AdmissionPlanTable admissionPlan)
         {
             InitializeComponent();
+            tbTitle.Text = "Изменение плана приема";
             btnDeletePlan.Visibility = Visibility.Visible;
             btnSave.HorizontalAlignment = HorizontalAlignment.Left;
             FillComboBox();
@@ -153,6 +152,11 @@ namespace SearchForProfessions
             {
                 try
                 {
+                    if(admissionPlan == null)
+                    {
+                        admissionPlan = new AdmissionPlanTable();
+                        Classes.DataBaseClass.connect.AdmissionPlanTable.Add(admissionPlan);
+                    }
                     admissionPlan.IDSpecialization = (int)cbSpecialization.SelectedValue;
                     admissionPlan.IDOrganization = (int)cbOrganization.SelectedValue;
                     admissionPlan.IDFinancialBasisis = (int)cbFinancialBase.SelectedValue;

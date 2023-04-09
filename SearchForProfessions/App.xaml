@@ -24,7 +24,7 @@
                         <Grid>
                             <Rectangle Fill="{TemplateBinding Background}">
                             </Rectangle>
-                            <Label Padding="10,0" VerticalAlignment="Center" Foreground="{StaticResource ButtonForeground}" FontWeight="DemiBold" Content="{TemplateBinding Content}"/>
+                            <Label Padding="15,0" VerticalAlignment="Center" Foreground="{StaticResource ButtonForeground}" FontWeight="DemiBold" Content="{TemplateBinding Content}"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>

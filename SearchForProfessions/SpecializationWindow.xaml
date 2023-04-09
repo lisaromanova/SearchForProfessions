@@ -8,7 +8,7 @@
         Title="Специальность" Height="600" MinHeight="600" Width="500" MinWidth="500" Background="{StaticResource gradient}" Icon="\Resources\logo.png">
     <Grid VerticalAlignment="Center" >
         <StackPanel Width="400">
-            <TextBlock Text="Добавление специальности" Style="{StaticResource TextBlockHeader}"/>
+            <TextBlock Name="tbTitle" Text="Добавление специальности" Style="{StaticResource TextBlockHeader}"/>
             <GroupBox Header="Шифр *" Style="{StaticResource GroupBoxBase}">
                 <TextBox Name="tbCode"/>
             </GroupBox>
@@ -17,8 +17,8 @@
             </GroupBox>
             <GroupBox Header="Квалификация *" Style="{StaticResource GroupBoxBase}">
                 <StackPanel>
-                    <ComboBox Name="cbQualification" SelectionChanged="cbQualification_SelectionChanged"/>
-                    <ListBox Margin="0,5,0,5" Height="150" Name="lbQualification" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+                    <ComboBox Margin="5" Name="cbQualification" SelectionChanged="cbQualification_SelectionChanged"/>
+                    <ListBox Margin="5" Height="150" Name="lbQualification" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -32,7 +32,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Button Name="btnAddQualification" Style="{StaticResource ButtonAdd}" Click="btnAddQualification_Click"/>
+                    <Button Margin="5" Name="btnAddQualification" Style="{StaticResource ButtonAdd}" Click="btnAddQualification_Click"/>
                 </StackPanel>
             </GroupBox>
             <Button Margin="0,10,0,0" Width="200" Content="Сохранить" Style="{StaticResource ButtonBase}" Name="btnSave" Click="btnSave_Click"/>

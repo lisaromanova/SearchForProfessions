@@ -28,8 +28,6 @@ namespace SearchForProfessions
             cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.ToList();
             cbQualification.SelectedValuePath = "ID";
             cbQualification.DisplayMemberPath = "Name";
-            specializationTable = new SpecializationTable();
-            Classes.DataBaseClass.connect.SpecializationTable.Add(specializationTable);
         }
 
         List<QualificationTable> qualifications = new List<QualificationTable>();
@@ -37,6 +35,7 @@ namespace SearchForProfessions
         public SpecializationWindow(SpecializationTable specialization)
         {
             InitializeComponent();
+            tbTitle.Text = "Изменение специальности";
             cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.ToList();
             cbQualification.SelectedValuePath = "ID";
             cbQualification.DisplayMemberPath = "Name";
@@ -90,6 +89,11 @@ namespace SearchForProfessions
             {
                 try
                 {
+                    if(specializationTable == null)
+                    {
+                        specializationTable = new SpecializationTable();
+                        Classes.DataBaseClass.connect.SpecializationTable.Add(specializationTable);
+                    }
                     specializationTable.Code = tbCode.Text;
                     specializationTable.Name = tbName.Text;
                     if (specializationTable.ID != 0)

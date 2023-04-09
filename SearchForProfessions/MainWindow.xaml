@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
         <ScrollViewer Background="White" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <Button Name="btnMain" FontSize="18" Content="Главная" Style="{StaticResource Button}" Click="btnMain_Click"/>
-                <Button Name="btnViewOrganization" FontSize="18" Content="Организации" Style="{StaticResource Button}" Click="btnViewOrganization_Click"/>
-                <Button Name="btnViewSpecialization" FontSize="18" Content="Специальности" Style="{StaticResource Button}" Click="btnViewSpecialization_Click"/>
+                <Button Name="btnMain" FontSize="20" Content="Главная" Style="{StaticResource Button}" Click="btnMain_Click"/>
+                <Button Name="btnViewOrganization" FontSize="20" Content="Организации" Style="{StaticResource Button}" Click="btnViewOrganization_Click"/>
+                <Button Name="btnViewSpecialization" FontSize="20" Content="Специальности" Style="{StaticResource Button}" Click="btnViewSpecialization_Click"/>
             </StackPanel>
         </ScrollViewer>
         <Frame Name="frmLoad" Grid.Row="1" NavigationUIVisibility="Hidden" Background="{StaticResource gradient}"/>
