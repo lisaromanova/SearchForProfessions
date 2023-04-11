@@ -29,20 +29,23 @@ namespace SearchForProfessions
         {
             if (Classes.CheckFieldsClasses.CheckFieldsQualification(tbName.Text))
             {
-                try
+                if(Classes.CheckFieldsClasses.CheckQualifications(tbName.Text))
                 {
-                    QualificationTable qualification = new QualificationTable()
+                    try
                     {
-                        Name = tbName.Text,
-                    };
-                    Classes.DataBaseClass.connect.QualificationTable.Add(qualification);
-                    Classes.DataBaseClass.connect.SaveChanges();
-                    MessageBox.Show("Данные успешно сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Close();
-                }
-                catch
-                {
-                    MessageBox.Show("Ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        QualificationTable qualification = new QualificationTable()
+                        {
+                            Name = tbName.Text,
+                        };
+                        Classes.DataBaseClass.connect.QualificationTable.Add(qualification);
+                        Classes.DataBaseClass.connect.SaveChanges();
+                        MessageBox.Show("Данные успешно сохранены", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }

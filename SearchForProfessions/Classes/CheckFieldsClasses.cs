@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace SearchForProfessions.Classes
 {
@@ -207,6 +208,25 @@ namespace SearchForProfessions.Classes
             else
             {
                 MessageBox.Show("Введите корректно шифр специальности!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Проверка наличия квалификации в базе данных
+        /// </summary>
+        /// <param name="name">Наименование квалификации</param>
+        /// <returns>Квалификации нет в базе (true), квалификация есть в базе (false)</returns>
+        public static bool CheckQualifications(string name)
+        {
+            QualificationTable qualification = Classes.DataBaseClass.connect.QualificationTable.FirstOrDefault(x => x.Name == name);
+            if (qualification == null)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Такая квалификация уже есть в базе!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
