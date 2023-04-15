@@ -17,7 +17,7 @@ namespace SearchForProfessions.Model
         {
             get
             {
-                List<SpecializationQualificationTable> qualifications = SpecializationQualificationTable.ToList();
+                List<SpecializationQualificationTable> qualifications = SpecializationQualificationTable.OrderBy(x=> x.QualificationTable.Name).ToList();
                 string str = "";
                 foreach(SpecializationQualificationTable tables in qualifications)
                 {

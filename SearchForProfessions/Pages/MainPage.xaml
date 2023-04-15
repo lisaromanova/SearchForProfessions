@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="85"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
@@ -48,9 +48,18 @@
                         <StackPanel VerticalAlignment="Center" Margin="10" Grid.Column="0">
                             <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding OrganizationTable.FullName}"/>
                             <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center" Text="{Binding OrganizationTable.Phone}"/>
+                            <TextBlock Visibility="{Binding OrganizationTable.EmailVisibility}" Style="{StaticResource TextBlockBase}" Text="{Binding OrganizationTable.E_mail}"/>
                             <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center" Text="{Binding OrganizationTable.Adress}"/>
-                            <TextBlock Style="{StaticResource TextBlockBase}" VerticalAlignment="Center">
+                            <TextBlock Style="{StaticResource TextBlockBase}" Visibility="{Binding OrganizationTable.SiteVisibility}" VerticalAlignment="Center">
                                 <Run Name="rSite" Tag="{Binding OrganizationTable.Site}" Style="{StaticResource runUrl}" Text="{Binding OrganizationTable.Site}" MouseDown="rSite_MouseDown"/>
+                            </TextBlock>
+                            <TextBlock Visibility="{Binding OrganizationTable.HotlineVisibility}" Style="{StaticResource TextBlockBase}">
+                                <Run Text="Горячая линия БПОО:"/>
+                                <Run Text="{Binding OrganizationTable.Hotline}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockBase}">
+                                <Run Text="Доступная среда:"/>
+                                <Run Text="{Binding OrganizationTable.AvailableEnvironmentString, Mode=OneWay}"/>
                             </TextBlock>
                         </StackPanel>
                         <StackPanel Margin="10" Grid.Column="1" VerticalAlignment="Center">

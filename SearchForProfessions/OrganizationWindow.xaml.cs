@@ -75,6 +75,14 @@ namespace SearchForProfessions
                     {
                         organization.E_mail = tbEmail.Text;
                     }
+                    if (string.IsNullOrWhiteSpace(tbSite.Text))
+                    {
+                        organization.Site = null;
+                    }
+                    else
+                    {
+                        organization.Site = tbSite.Text;
+                    }
                     if (string.IsNullOrWhiteSpace(tbHotline.Text))
                     {
                         organization.Hotline = null;

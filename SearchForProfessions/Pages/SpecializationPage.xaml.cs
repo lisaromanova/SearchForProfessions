@@ -25,7 +25,7 @@ namespace SearchForProfessions.Pages
         public SpecializationPage()
         {
             InitializeComponent();
-            specializations = Classes.DataBaseClass.connect.SpecializationTable.ToList();
+            specializations = Classes.DataBaseClass.connect.SpecializationTable.OrderBy(x=> x.Name).ToList();
             listSpecialization.ItemsSource = specializations;
         }
 

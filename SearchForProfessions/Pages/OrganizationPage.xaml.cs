@@ -26,7 +26,7 @@ namespace SearchForProfessions.Pages
         public OrganizationPage()
         {
             InitializeComponent();
-            organizations = Classes.DataBaseClass.connect.OrganizationTable.ToList();
+            organizations = Classes.DataBaseClass.connect.OrganizationTable.OrderBy(x=> x.Name).ToList();
             listOrganization.ItemsSource = organizations;
         }
 

@@ -25,11 +25,30 @@ namespace SearchForProfessions
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Проверка наличия квалификации в базе данных
+        /// </summary>
+        /// <param name="name">Наименование квалификации</param>
+        /// <returns>Квалификации нет в базе (true), квалификация есть в базе (false)</returns>
+        bool CheckQualifications(string name)
+        {
+            QualificationTable qualification = Classes.DataBaseClass.connect.QualificationTable.FirstOrDefault(x => x.Name == name);
+            if (qualification == null)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Такая квалификация уже есть в базе!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (Classes.CheckFieldsClasses.CheckFieldsQualification(tbName.Text))
             {
-                if(Classes.CheckFieldsClasses.CheckQualifications(tbName.Text))
+                if(CheckQualifications(tbName.Text))
                 {
                     try
                     {
