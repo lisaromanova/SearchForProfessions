@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Квалификация" Height="350" MinHeight="350" Width="500" MinWidth="500" Background="{StaticResource gradient}" Icon="\Resources\logo.png">
-    <Grid VerticalAlignment="Center">
-        <StackPanel Width="300">
-            <TextBlock Text="Добавление квалификации" Style="{StaticResource TextBlockHeader}"/>
-            <GroupBox Margin="0,10,0,10" Header="Наименование *" Style="{StaticResource GroupBoxBase}">
-                <TextBox Name="tbName"/>
-            </GroupBox>
-            <Button Margin="0,10,0,0" Width="200" Content="Сохранить" Style="{StaticResource ButtonBase}" Name="btnSave" Click="btnSave_Click"/>
-        </StackPanel>
+        Title="Квалификация" Height="350" MinHeight="350" Width="500" MinWidth="500" Icon="\Resources\logo.png">
+    <Grid Background="{StaticResource gradient}">
+        <Grid VerticalAlignment="Center">
+            <StackPanel Width="300">
+                <TextBlock Text="Добавление квалификации" Style="{StaticResource TextBlockHeader}"/>
+                <GroupBox Margin="0,10,0,10" Header="Наименование *" Style="{StaticResource GroupBoxBase}">
+                    <TextBox Name="tbName"/>
+                </GroupBox>
+                <Button Margin="0,10,0,0" Width="200" Content="Сохранить" Style="{StaticResource ButtonBase}" Name="btnSave" Click="btnSave_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

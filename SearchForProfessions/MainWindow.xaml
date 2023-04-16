@@ -12,12 +12,15 @@
         <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <ScrollViewer Background="White" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-            <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <Button Name="btnMain" FontSize="20" Content="Главная" Style="{StaticResource Button}" Click="btnMain_Click"/>
-                <Button Name="btnViewOrganization" FontSize="20" Content="Организации" Style="{StaticResource Button}" Click="btnViewOrganization_Click"/>
-                <Button Name="btnViewSpecialization" FontSize="20" Content="Специальности" Style="{StaticResource Button}" Click="btnViewSpecialization_Click"/>
-            </StackPanel>
+            <Grid>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Button Name="btnMain" FontSize="20" Content="Главная" Style="{StaticResource Button}" Click="btnMain_Click"/>
+                    <Button Name="btnViewOrganization" FontSize="20" Content="Организации" Style="{StaticResource Button}" Click="btnViewOrganization_Click"/>
+                    <Button Name="btnViewSpecialization" FontSize="20" Content="Специальности" Style="{StaticResource Button}" Click="btnViewSpecialization_Click"/>
+                </StackPanel>
+                <Image Source="\Resources\logo_2.png" Margin="10,5" HorizontalAlignment="Right"/>
+            </Grid>
         </ScrollViewer>
-        <Frame Name="frmLoad" Grid.Row="1" NavigationUIVisibility="Hidden" Background="{StaticResource gradient}"/>
+        <Frame Background="{StaticResource gradient}" Name="frmLoad" Grid.Row="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

@@ -202,91 +202,133 @@ namespace UnitTestProject
         [TestMethod]
         public void CheckFieldsSpecialization_SpacesAtTheStartAndAtTheEndInCode()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsSpecilization("  09.02.07  ", "Информационные системы и программирование  ", new List<QualificationTable>() { new QualificationTable() { ID = 1, Name = "Программист" } });
+            bool actual = CheckFieldsClasses.CheckFieldsSpecilization("  09.02.07  ", "Информационные системы и программирование", new List<QualificationTable>() { new QualificationTable() { ID = 1, Name = "Программист" } });
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_IsTrue()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsTrue(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_TypeIsBool()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsInstanceOfType(actual, typeof(bool));
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_NotNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsNotNull(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_SpacesInTheMiddleInName()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский    колледж", "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский    колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_SpacesInTheMiddleInPhone()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12    (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12    (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_SpacesInTheMiddleInAdress()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе     1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе     1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        public void CheckFieldsOrganization_SpacesInTheMiddleInEmail()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_  suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        public void CheckFieldsOrganization_SpacesInTheMiddleInSite()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngk  nn.ru/", "218-22-12 (доб.322, 323)", true, false);
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        public void CheckFieldsOrganization_SpacesInTheMiddleInBpoo()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12    (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_SpacesAtTheStartAndAtTheEndInPrefix()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("  ГБПОУ  ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("  ГБПОУ  ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_PreficIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization(string.Empty, "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization(string.Empty, "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_NameIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", string.Empty, "218 22 12 (доб 309)", "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", string.Empty, "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_PhoneIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", string.Empty, "Московское шоссе 1", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", string.Empty, "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_AdressIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", string.Empty, true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", string.Empty, "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
             Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        public void CheckFieldsOrganization_EmailIsNull()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", string.Empty, "https://ngknn.ru/", "218-22-12 (доб.322, 323)", true, false);
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void CheckFieldsOrganization_SiteIsNull()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", string.Empty, "218-22-12 (доб.322, 323)", true, false);
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void CheckFieldsOrganization_BpooIsNull()
+        {
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", string.Empty, true, false);
+            Assert.IsTrue(actual);
         }
 
         [TestMethod]
         public void CheckFieldsOrganization_AvailableEnvironmentIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", string.Empty, false, false);
+            bool actual = CheckFieldsClasses.CheckFieldsOrganization("ГБПОУ", "Нижегородский Губернский колледж", "218 22 12 (доб 309)", "Московское шоссе 1", "ngk_suz@mail.52gov.ru", "https://ngknn.ru/", "218-22-12 (доб.322, 323)", false, false);
             Assert.IsFalse(actual);
         }
     }

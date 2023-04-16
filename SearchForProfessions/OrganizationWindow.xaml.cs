@@ -54,7 +54,7 @@ namespace SearchForProfessions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (Classes.CheckFieldsClasses.CheckFieldsOrganization(tbPrefix.Text, tbName.Text, tbPhone.Text, tbAdress.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
+            if (Classes.CheckFieldsClasses.CheckFieldsOrganization(tbPrefix.Text, tbName.Text, tbPhone.Text, tbAdress.Text, tbEmail.Text, tbSite.Text, tbHotline.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
             {
                 try
                 {
@@ -89,7 +89,7 @@ namespace SearchForProfessions
                     }
                     else
                     {
-                        organization.Hotline = tbEmail.Text;
+                        organization.Hotline = tbHotline.Text;
                     }
                     if ((bool)rbYes.IsChecked)
                     {

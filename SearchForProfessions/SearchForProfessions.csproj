@@ -220,6 +220,7 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\logo_2.png" />
     <Resource Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
