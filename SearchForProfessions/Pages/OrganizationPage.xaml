@@ -25,7 +25,7 @@
                 <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
             </GroupBox>
         </StackPanel>
-        <ListView Grid.Row="1" Name="listOrganization" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1" ScrollViewer.CanContentScroll="False" Name="listOrganization" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

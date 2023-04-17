@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Справочник абитуриента" Height="500" MinHeight="500" Width="800" MinWidth="800" Icon="\Resources\logo.png">
+        Title="Справочник абитуриента" Height="600" MinHeight="600" Width="900" MinWidth="900" Icon="\Resources\logo.png">
     <Grid>
         <Grid.RowDefinitions>
         <RowDefinition Height="65"/>

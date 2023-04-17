@@ -17,7 +17,7 @@
         <GroupBox Header="Поиск" Style="{StaticResource GroupBoxBase}">
             <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
         </GroupBox>
-        <ListView Grid.Row="1" Name="listSpecialization" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView ScrollViewer.CanContentScroll="False" Grid.Row="1" Name="listSpecialization" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

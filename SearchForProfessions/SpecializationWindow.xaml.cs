@@ -55,7 +55,7 @@ namespace SearchForProfessions
             QualificationWindow window = new QualificationWindow();
             window.ShowDialog();
             cbQualification.ItemsSource = null;
-            cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.ToList();
+            cbQualification.ItemsSource = Classes.DataBaseClass.connect.QualificationTable.OrderBy(x => x.Name).ToList();
         }
 
         private void cbQualification_SelectionChanged(object sender, SelectionChangedEventArgs e)

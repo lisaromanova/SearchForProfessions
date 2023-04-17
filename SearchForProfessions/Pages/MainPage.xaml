@@ -33,7 +33,7 @@
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>
-        <ListView Grid.Row="1" Name="listPlan" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1" Name="listPlan" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
