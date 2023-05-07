@@ -1,4 +1,5 @@
-﻿using SearchForProfessions.Model;
+﻿using Microsoft.Office.Interop.Excel;
+using SearchForProfessions.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,12 +16,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Excel = Microsoft.Office.Interop.Excel;
+
 namespace SearchForProfessions.Pages
 {
     /// <summary>
     /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class MainPage : System.Windows.Controls.Page
     {
         List<AdmissionPlanTable> admissionPlanList;
         public MainPage()
@@ -30,7 +33,7 @@ namespace SearchForProfessions.Pages
             cbSpecialization.Items.Add("Все специальности");
             foreach(SpecializationTable specialization in specializations)
             {
-                cbSpecialization.Items.Add(specialization.Name);
+                cbSpecialization.Items.Add(specialization.FullName);
             }
             cbQualification.Items.Add("Все квалификации");
             FillQualifications();
@@ -70,7 +73,8 @@ namespace SearchForProfessions.Pages
 
         private void cbSpecialization_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SpecializationTable specialization = Classes.DataBaseClass.connect.SpecializationTable.FirstOrDefault(x => x.Name == (string)cbSpecialization.SelectedValue);
+            List<SpecializationTable> specializations = Classes.DataBaseClass.connect.SpecializationTable.ToList();
+            SpecializationTable specialization = specializations.FirstOrDefault(x => x.FullName == cbSpecialization.SelectedValue as string);
             cbQualification.Items.Clear();
             cbQualification.Items.Add("Все квалификации");
             if (specialization!= null)
@@ -109,7 +113,7 @@ namespace SearchForProfessions.Pages
             }
             if(cbSpecialization.SelectedIndex != -1 && cbSpecialization.SelectedIndex!=0)
             {
-                list = list.Where(x => x.SpecializationTable.Name == cbSpecialization.SelectedValue as string).ToList();
+                list = list.Where(x => x.SpecializationTable.FullName == cbSpecialization.SelectedValue as string).ToList();
             }
             if (cbQualification.SelectedIndex != -1 && cbQualification.SelectedIndex != 0)
             {
@@ -123,12 +127,74 @@ namespace SearchForProfessions.Pages
             {
                 listPlan.Visibility = Visibility.Visible;
                 tbEmpty.Visibility = Visibility.Collapsed;
+                btnAddDataToExcel.IsEnabled = true;
                 listPlan.ItemsSource = list;
             }
             else
             {
                 listPlan.Visibility = Visibility.Collapsed;
                 tbEmpty.Visibility = Visibility.Visible;
+                btnAddDataToExcel.IsEnabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Запись плана приема в файл excel
+        /// </summary>
+        /// <param name="list">Лист с планом приема</param>
+        void DataToExcel(List<AdmissionPlanTable> list)
+        {
+            try
+            {
+                var excelApp = new Excel.Application();
+                Workbook book = excelApp.Workbooks.Add();
+                Excel._Worksheet workSheet = (Excel.Worksheet)excelApp.Worksheets[1];
+                workSheet.Cells[1, "A"] = "Организация";
+                workSheet.Cells[1, "B"] = "Телефон";
+                workSheet.Cells[1, "C"] = "E-mail";
+                workSheet.Cells[1, "D"] = "Адрес";
+                workSheet.Cells[1, "E"] = "Сайт";
+                workSheet.Cells[1, "F"] = "Горячая линия БПОО";
+                workSheet.Cells[1, "G"] = "Доступная среда";
+                workSheet.Cells[1, "H"] = "Специальность";
+                workSheet.Cells[1, "I"] = "Квалификация";
+                workSheet.Cells[1, "J"] = "Форма обучения";
+                workSheet.Cells[1, "K"] = "Период обучения";
+                workSheet.Cells[1, "L"] = "Уровень образования";
+                workSheet.Cells[1, "M"] = "Финансовая основа";
+                workSheet.Cells[1, "N"] = "План приема";
+                workSheet.Cells[1, "O"] = "Вступительные испытания";
+                var row = 1;
+                foreach (var plan in list)
+                {
+                    row++;
+                    workSheet.Cells[row, "A"] = plan.OrganizationTable.FullName;
+                    workSheet.Cells[row, "B"] = plan.OrganizationTable.Phone;
+                    workSheet.Cells[row, "C"] = plan.OrganizationTable.E_mail;
+                    workSheet.Cells[row, "D"] = plan.OrganizationTable.Adress;
+                    workSheet.Cells[row, "E"] = plan.OrganizationTable.Site;
+                    workSheet.Cells[row, "F"] = plan.OrganizationTable.Hotline;
+                    workSheet.Cells[row, "G"] = plan.OrganizationTable.AvailableEnvironmentString;
+                    workSheet.Cells[row, "H"] = plan.SpecializationTable.FullName;
+                    workSheet.Cells[row, "I"] = plan.Qualifications;
+                    workSheet.Cells[row, "J"] = plan.FormOfTrainingTable.Name;
+                    workSheet.Cells[row, "K"] = plan.PeriodOfStudy;
+                    workSheet.Cells[row, "L"] = plan.EducationLevelTable.Name;
+                    workSheet.Cells[row, "M"] = plan.FinancialBasisTable.Name;
+                    workSheet.Cells[row, "N"] = plan.AdmissionPlan;
+                    workSheet.Cells[row, "O"] = plan.EntranceTestString;
+                }
+                for (int i = 1; i <= 15; i++)
+                {
+                    workSheet.Columns[i].AutoFit();
+                }
+                book.SaveAs(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\План_приема_" + DateTime.Now.ToString("dd.MM.yyy_HH.mm.d") +".xlsx");
+                book.Close();
+                MessageBox.Show("Данные успешно записаны в файл excel.\nФайл находится в папке Документы", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -151,12 +217,20 @@ namespace SearchForProfessions.Pages
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
+            System.Windows.Controls.Button btn = sender as System.Windows.Controls.Button;
             int id = Convert.ToInt32(btn.Uid);
             AdmissionPlanTable admissionPlan = Classes.DataBaseClass.connect.AdmissionPlanTable.FirstOrDefault(x => x.ID == id);
             AdmissionPlanWindow window = new AdmissionPlanWindow(admissionPlan);
             window.ShowDialog();
             Classes.FrameClass.frame.Navigate(new MainPage());
+        }
+
+        private void btnAddDataToExcel_Click(object sender, RoutedEventArgs e)
+        {
+            btnAddDataToExcel.IsEnabled = false;
+            List<AdmissionPlanTable> list = listPlan.Items.Cast<AdmissionPlanTable>().ToList();
+            DataToExcel(list);
+            btnAddDataToExcel.IsEnabled = true;
         }
     }
 }

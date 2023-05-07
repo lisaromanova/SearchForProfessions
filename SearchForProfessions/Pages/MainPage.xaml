@@ -65,7 +65,7 @@
                         <StackPanel Margin="10" Grid.Column="1" VerticalAlignment="Center">
                             <TextBlock Style="{StaticResource TextBlockBase}">
                                 <Run Text="Специальность:" FontWeight="Bold"/>
-                                <Run Text="{Binding SpecializationTable.Name}"/>
+                                <Run Text="{Binding SpecializationTable.FullName, Mode=OneWay}"/>
                             </TextBlock>
                             <TextBlock Style="{StaticResource TextBlockBase}">
                                 <Run Text="Квалификация:" FontWeight="Bold"/>
@@ -102,6 +102,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <TextBlock Name="tbEmpty" Grid.Row="1" Text="Записи не найдены" FontSize="40" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="2" Name="btnAddEntry" Content="Добавить запись" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource ButtonBase}" Click="btnAddEntry_Click"/>
+        <Button Margin="10,0,0,0" Grid.Row="2" Name="btnAddEntry" Content="Добавить запись" Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource ButtonBase}" Click="btnAddEntry_Click"/>
+        <Button Margin="0,0,10,0" Grid.Row="2" Name="btnAddDataToExcel" Content="Запись данных в Excel" Width="250" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource ButtonBase}" Click="btnAddDataToExcel_Click"/>
     </Grid>
 </Page>

@@ -82,7 +82,7 @@ namespace SearchForProfessions
             cbOrganization.DisplayMemberPath = "FullName";
             cbSpecialization.ItemsSource = Classes.DataBaseClass.connect.SpecializationTable.ToList().OrderBy(x => x.Name);
             cbSpecialization.SelectedValuePath = "ID";
-            cbSpecialization.DisplayMemberPath = "Name";
+            cbSpecialization.DisplayMemberPath = "FullName";
             FillQualifications();
             cbFormOfTraining.ItemsSource = Classes.DataBaseClass.connect.FormOfTrainingTable.ToList();
             cbFormOfTraining.SelectedValuePath = "ID";
