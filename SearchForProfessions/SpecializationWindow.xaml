@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="Специальность" Height="600" MinHeight="600" Width="500" MinWidth="500" Icon="\Resources\logo.png">
+        Title="Специальность" Height="600" MinHeight="600" Width="500" MinWidth="500" Icon="\Resources\logo.ico">
     <Grid Background="{StaticResource gradient}">
         <Grid VerticalAlignment="Center" >
             <StackPanel Width="400">
