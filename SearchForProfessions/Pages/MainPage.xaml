@@ -54,7 +54,7 @@
                                 <Run Name="rSite" Tag="{Binding OrganizationTable.Site}" Style="{StaticResource runUrl}" Text="{Binding OrganizationTable.Site}" MouseDown="rSite_MouseDown"/>
                             </TextBlock>
                             <TextBlock Visibility="{Binding OrganizationTable.HotlineVisibility}" Style="{StaticResource TextBlockBase}">
-                                <Run Text="Горячая линия БПОО:"/>
+                                <Run Text="Горячая линия по приему лиц с инвалидностью и ОВЗ:"/>
                                 <Run Text="{Binding OrganizationTable.Hotline}"/>
                             </TextBlock>
                             <TextBlock Style="{StaticResource TextBlockBase}">
