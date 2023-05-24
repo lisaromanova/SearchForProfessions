@@ -154,7 +154,7 @@ namespace SearchForProfessions.Pages
                 workSheet.Cells[1, "C"] = "E-mail";
                 workSheet.Cells[1, "D"] = "Адрес";
                 workSheet.Cells[1, "E"] = "Сайт";
-                workSheet.Cells[1, "F"] = "Горячая линия БПОО";
+                workSheet.Cells[1, "F"] = "Горячая линия по приему лиц с инвалидностью и ОВЗ";
                 workSheet.Cells[1, "G"] = "Доступная среда";
                 workSheet.Cells[1, "H"] = "Специальность";
                 workSheet.Cells[1, "I"] = "Квалификация";
