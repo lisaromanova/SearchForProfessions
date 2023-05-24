@@ -56,7 +56,7 @@
                                 <Run Name="rSite" Text="{Binding Site}" Style="{StaticResource runUrl}" Tag="{Binding Site}" MouseDown="rSite_MouseDown"/>
                             </TextBlock>
                             <TextBlock Visibility="{Binding HotlineVisibility}" Style="{StaticResource TextBlockBase}">
-                                <Run Text="Горячая линия БПОО:" FontWeight="Bold"/>
+                                <Run Text="Горячая линия по приему лиц с инвалидностью и ОВЗ:" FontWeight="Bold"/>
                                 <Run Text="{Binding Hotline}"/>
                             </TextBlock>
                             <TextBlock Style="{StaticResource TextBlockBase}">

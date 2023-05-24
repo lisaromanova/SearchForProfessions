@@ -30,7 +30,7 @@
                     <GroupBox Header="Сайт" Style="{StaticResource GroupBoxBase}">
                         <TextBox Name="tbSite"/>
                     </GroupBox>
-                    <GroupBox Header="Горячая линия БПОО" Style="{StaticResource GroupBoxBase}">
+                    <GroupBox Header="Горячая линия по приему лиц с инвалидностью и ОВЗ" Style="{StaticResource GroupBoxBase}">
                         <TextBox Name="tbHotline"/>
                     </GroupBox>
                     <GroupBox Header="Доступная среда *" Style="{StaticResource GroupBoxBase}">
