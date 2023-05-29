@@ -113,7 +113,7 @@ namespace SearchForProfessions.Classes
         /// <param name="adress">Адрес организации</param>
         /// <param name="email">E-mail организации</param>
         /// <param name="site">Сайт организации</param>
-        /// <param name="bpoo">Горячая линия БПОО организации</param>
+        /// <param name="bpoo">Горячая линия по приему лиц с инвалидностью и ОВЗ</param>
         /// <param name="checkNo">Радио кнопка нет в поле доступная среда</param>
         /// <param name="checkYes">Радио кнопка да в поле доступная среда</param>
         /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
@@ -145,7 +145,7 @@ namespace SearchForProfessions.Classes
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Введите горячую динию БПОО организации корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                                        MessageBox.Show("Введите горячую линию по приему лиц с инвалидностью и ОВЗ корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                                         return false;
                                     }
                                 }
