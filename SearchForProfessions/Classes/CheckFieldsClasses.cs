@@ -125,7 +125,7 @@ namespace SearchForProfessions.Classes
                 {
                     if (Regex.IsMatch(phone, "^[А-Яа-я0-9-()+,._]+( [А-Яа-я0-9-()+,._]+)*$"))
                     {
-                        if (Regex.IsMatch(adress, "^[А-Яа-я0-9-(),._]+( [А-Яа-я0-9-(),._]+)*$"))
+                        if (Regex.IsMatch(adress, "^[А-Яа-я0-9-(),._\\/]+( [А-Яа-я0-9-(),._\\/]+)*$"))
                         {
                             if (string.IsNullOrWhiteSpace(email) || Regex.IsMatch(email, "^[A-Za-z0-9-()`#,:%.&_@\\/]+([A-Za-z0-9-()`#%&:,._@\\/]+)*$"))
                             {
@@ -193,7 +193,7 @@ namespace SearchForProfessions.Classes
         /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
         public static bool CheckFieldsQualification(string name)
         {
-            if (Regex.IsMatch(name, "^[А-Яа-я0-9()-:,.]+( [А-Яа-я0-9()-:,.]+)*$"))
+            if (Regex.IsMatch(name, "^[А-Яа-я0-9()-:,.\\/]+( [А-Яа-я0-9()-:,.\\/]+)*$"))
             {
                 return true;
             }
