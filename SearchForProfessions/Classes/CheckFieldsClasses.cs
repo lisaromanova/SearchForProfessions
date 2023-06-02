@@ -57,7 +57,7 @@ namespace SearchForProfessions.Classes
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Введите план приема!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                                            MessageBox.Show("Введите план приема корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                                             return false;
                                         }
                                     }
@@ -123,15 +123,15 @@ namespace SearchForProfessions.Classes
             {
                 if (Regex.IsMatch(name, "^[А-Яа-я0-9(),.-:]+( [А-Яа-я0-9(),.-:]+)*$"))
                 {
-                    if (Regex.IsMatch(phone, "^[А-Яа-я0-9-()+,._]+( [А-Яа-я0-9-()+,._]+)*$"))
+                    if (Regex.IsMatch(phone, "^[А-Яа-я0-9-():;+,._]+( [А-Яа-я0-9-():;+,._]+)*$"))
                     {
-                        if (Regex.IsMatch(adress, "^[А-Яа-я0-9-(),._\\/]+( [А-Яа-я0-9-(),._\\/]+)*$"))
+                        if (Regex.IsMatch(adress, "^[А-Яа-я0-9-(),:;._\\/]+( [А-Яа-я0-9-(),:;._\\/]+)*$"))
                         {
-                            if (string.IsNullOrWhiteSpace(email) || Regex.IsMatch(email, "^[A-Za-z0-9-()`#,:%.&_@\\/]+([A-Za-z0-9-()`#%&:,._@\\/]+)*$"))
+                            if (string.IsNullOrWhiteSpace(email) || Regex.IsMatch(email, "^[A-Za-z0-9-()`#,;:%.&_@\\/]+([A-Za-z0-9-()`#%&:,;._@\\/]+)*$"))
                             {
-                                if (string.IsNullOrWhiteSpace(site) || Regex.IsMatch(site, "^[A-Za-z0-9-()`#,%:.&_?@\\/]+([A-Za-z0-9-()`#%&,:._@?\\/]+)*$"))
+                                if (string.IsNullOrWhiteSpace(site) || Regex.IsMatch(site, "^[A-Za-z0-9-()`#,;%:.&_?@\\/]+([A-Za-z0-9-()`#%&,;:._@?\\/]+)*$"))
                                 {
-                                    if (string.IsNullOrWhiteSpace(bpoo) || Regex.IsMatch(bpoo, "^[А-Яа-я0-9-()+,._]+( [А-Яа-я0-9-()+,._]+)*$"))
+                                    if (string.IsNullOrWhiteSpace(bpoo) || Regex.IsMatch(bpoo, "^[А-Яа-я0-9-()+,;:._]+( [А-Яа-я0-9-()+,;:._]+)*$"))
                                     {
                                         if (checkYes || checkNo)
                                         {
@@ -163,25 +163,25 @@ namespace SearchForProfessions.Classes
                         }
                         else
                         {
-                            MessageBox.Show("Введите адрес организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Введите адрес организации корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Введите телефон организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Введите телефон организации корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Введите наименование организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Введите наименование организации корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("Введите аббревиатуру организации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Введите аббревиатуру организации корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -193,13 +193,13 @@ namespace SearchForProfessions.Classes
         /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
         public static bool CheckFieldsQualification(string name)
         {
-            if (Regex.IsMatch(name, "^[А-Яа-я0-9()-:,.\\/]+( [А-Яа-я0-9()-:,.\\/]+)*$"))
+            if (Regex.IsMatch(name, "^[А-Яа-я0-9()-:;,.\\/]+( [А-Яа-я0-9()-:;,.\\/]+)*$"))
             {
                 return true;
             }
             else
             {
-                MessageBox.Show("Введите наименование квалификации!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Введите наименование квалификации корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -215,7 +215,7 @@ namespace SearchForProfessions.Classes
         {
             if (Regex.IsMatch(code, "^\\d\\d.\\d\\d.\\d\\d$"))
             {
-                if (Regex.IsMatch(name, "^[А-Яа-я0-9()-:,.]+( [А-Яа-я0-9()-:,.]+)*$"))
+                if (Regex.IsMatch(name, "^[А-Яа-я0-9()-:;,.]+( [А-Яа-я0-9()-:;,.]+)*$"))
                 {
                     if (collection.Count != 0)
                     {
@@ -229,13 +229,13 @@ namespace SearchForProfessions.Classes
                 }
                 else
                 {
-                    MessageBox.Show("Введите наименование специальности!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Введите наименование специальности корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
             }
             else
             {
-                MessageBox.Show("Введите корректно шифр специальности!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Введите шифр специальности корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
