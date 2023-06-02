@@ -77,7 +77,7 @@ namespace SearchForProfessions
         /// </summary>
         void FillComboBox()
         {
-            cbOrganization.ItemsSource = Classes.DataBaseClass.connect.OrganizationTable.ToList().OrderBy(x=> x.FullName);
+            cbOrganization.ItemsSource = Classes.DataBaseClass.connect.OrganizationTable.ToList().OrderBy(x=> x.Name);
             cbOrganization.SelectedValuePath = "ID";
             cbOrganization.DisplayMemberPath = "FullName";
             cbSpecialization.ItemsSource = Classes.DataBaseClass.connect.SpecializationTable.ToList().OrderBy(x => x.Name);
