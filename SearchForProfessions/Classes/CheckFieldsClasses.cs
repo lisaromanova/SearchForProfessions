@@ -121,7 +121,7 @@ namespace SearchForProfessions.Classes
         {
             if (Regex.IsMatch(prefix, "^[А-Яа-я0-9]+( [А-Яа-я0-9]+)*$"))
             {
-                if (Regex.IsMatch(name, "^[А-Яа-я0-9(),.-:]+( [А-Яа-я0-9(),.-:]+)*$"))
+                if (Regex.IsMatch(name, "^[А-Яа-я0-9(),.\\-:]+( [А-Яа-я0-9(),.\\-:]+)*$"))
                 {
                     if (Regex.IsMatch(phone, "^[А-Яа-я0-9-():;+,._]+( [А-Яа-я0-9-():;+,._]+)*$"))
                     {
