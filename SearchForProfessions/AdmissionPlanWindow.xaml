@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchForProfessions"
         mc:Ignorable="d"
-        Title="План приема" Height="700" MinHeight="700" Width="540" MinWidth="540" Icon="\Resources\logo.ico">
+        Title="План приема" Height="650" MinHeight="650" Width="540" MinWidth="540" Icon="\Resources\logo.ico">
     <Grid Background="{StaticResource gradient}">
         <Grid VerticalAlignment="Center">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -47,9 +47,6 @@
                     </GroupBox>
                     <GroupBox Header="Финансовая основа *" Style="{StaticResource GroupBoxBase}">
                         <ComboBox Name="cbFinancialBase"/>
-                    </GroupBox>
-                    <GroupBox Header="План приема *" Style="{StaticResource GroupBoxBase}">
-                        <TextBox Name="tbAdmissionPlan"/>
                     </GroupBox>
                     <GroupBox Header="Вступительные испытания *" Style="{StaticResource GroupBoxBase}">
                         <StackPanel Orientation="Horizontal">

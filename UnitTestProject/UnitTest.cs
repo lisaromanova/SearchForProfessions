@@ -13,105 +13,105 @@ namespace UnitTestProject
         [TestMethod]
         public void CheckFieldsAdmissionPlan_IsTrue()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", true, false);
             Assert.IsTrue(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_TypeIsBool()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", true, false);
             Assert.IsInstanceOfType(actual, typeof(bool));
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_NotNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", true, false);
             Assert.IsNotNull(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_SpacesAtTheBeginningAndAtTheEndInPeriod()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, " 3 г. 10 мес. ", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, " 3 г. 10 мес. ", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_OrganizationIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(-1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(-1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_SpecializationIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, -1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, -1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, 1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_ListQualificationIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable>(), 1, 1, 1, " 3 г. 10 мес. ", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable>(), 1, 1, 1, " 3 г. 10 мес. ", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_FormIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, -1, 1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, -1, 1, 1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_FinanceIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, -1, 1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, -1, 1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_LevelIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_PeriodIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, string.Empty, "75", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, string.Empty, true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_PlanIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", string.Empty, true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_EntranceTestIsNull()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", "75", false, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", false, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_PlanIsDouble()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", "25.5", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 
         [TestMethod]
         public void CheckFieldsAdmissionPlan_PlanIsString()
         {
-            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", "qwerty", true, false);
+            bool actual = CheckFieldsClasses.CheckFieldsAdmissionPlan(1, 1, new List<QualificationTable> { new QualificationTable { ID = 1, Name = "Программист" } }, 1, 1, -1, "3 г. 10 мес.", true, false);
             Assert.IsFalse(actual);
         }
 

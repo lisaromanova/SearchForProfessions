@@ -27,7 +27,6 @@ namespace SearchForProfessions.Model
         public string PeriodOfStudy { get; set; }
         public int IDEducationLevel { get; set; }
         public int IDFinancialBasisis { get; set; }
-        public int AdmissionPlan { get; set; }
         public bool EntranceTest { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

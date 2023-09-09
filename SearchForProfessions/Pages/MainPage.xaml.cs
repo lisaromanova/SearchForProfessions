@@ -29,9 +29,9 @@ namespace SearchForProfessions.Pages
         public MainPage()
         {
             InitializeComponent();
-            List<SpecializationTable> specializations = Classes.DataBaseClass.connect.SpecializationTable.OrderBy(x=> x.Name).ToList();
+            List<SpecializationTable> specializations = Classes.DataBaseClass.connect.SpecializationTable.OrderBy(x => x.Name).ToList();
             cbSpecialization.Items.Add("Все специальности");
-            foreach(SpecializationTable specialization in specializations)
+            foreach (SpecializationTable specialization in specializations)
             {
                 cbSpecialization.Items.Add(specialization.FullName);
             }
@@ -162,7 +162,6 @@ namespace SearchForProfessions.Pages
                 workSheet.Cells[1, "K"] = "Период обучения";
                 workSheet.Cells[1, "L"] = "Уровень образования";
                 workSheet.Cells[1, "M"] = "Финансовая основа";
-                workSheet.Cells[1, "N"] = "План приема";
                 workSheet.Cells[1, "O"] = "Вступительные испытания";
                 var row = 1;
                 foreach (var plan in list)
@@ -181,7 +180,6 @@ namespace SearchForProfessions.Pages
                     workSheet.Cells[row, "K"] = plan.PeriodOfStudy;
                     workSheet.Cells[row, "L"] = plan.EducationLevelTable.Name;
                     workSheet.Cells[row, "M"] = plan.FinancialBasisTable.Name;
-                    workSheet.Cells[row, "N"] = plan.AdmissionPlan;
                     workSheet.Cells[row, "O"] = plan.EntranceTestString;
                 }
                 for (int i = 1; i <= 15; i++)

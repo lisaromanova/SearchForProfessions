@@ -88,10 +88,6 @@
                                 <Run Text="{Binding FinancialBasisTable.Name}"/>
                             </TextBlock>
                             <TextBlock Style="{StaticResource TextBlockBase}">
-                                <Run Text="План приема:" FontWeight="Bold"/>
-                                <Run Text="{Binding AdmissionPlan}"/>
-                            </TextBlock>
-                            <TextBlock Style="{StaticResource TextBlockBase}">
                                 <Run Text="Вступительные испытания:" FontWeight="Bold"/>
                                 <Run Text="{Binding EntranceTestString, Mode=OneWay}"/>
                             </TextBlock>

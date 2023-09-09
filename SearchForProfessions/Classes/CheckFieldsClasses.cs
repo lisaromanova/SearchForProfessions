@@ -23,11 +23,10 @@ namespace SearchForProfessions.Classes
         /// <param name="finance">Финансовая основа</param>
         /// <param name="level">Уровень образования</param>
         /// <param name="period">Период обучения</param>
-        /// <param name="plan">План приема</param>
         /// <param name="checkYes">Радио кнопка да в поле вступительные испытания</param>
         /// <param name="checkNo">Радио кнопка нет в поле вступительные испытания</param>
         /// <returns>Поля заполнены (true), поля не заполнены (false)</returns>
-        public static bool CheckFieldsAdmissionPlan(int organization, int specialization, List<QualificationTable> qualifications, int form, int finance, int level, string period, string plan, bool checkYes, bool checkNo)
+        public static bool CheckFieldsAdmissionPlan(int organization, int specialization, List<QualificationTable> qualifications, int form, int finance, int level, string period, bool checkYes, bool checkNo)
         {
             if (organization != -1)
             {
@@ -43,21 +42,14 @@ namespace SearchForProfessions.Classes
                                 {
                                     if (finance != -1)
                                     {
-                                        if (Regex.IsMatch(plan, @"^\d+$"))
+
+                                        if (checkYes || checkNo)
                                         {
-                                            if (checkYes || checkNo)
-                                            {
-                                                return true;
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Выберите наличие вступительных испытаний!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                                                return false;
-                                            }
+                                            return true;
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Введите план приема корректно!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                                            MessageBox.Show("Выберите наличие вступительных испытаний!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                                             return false;
                                         }
                                     }

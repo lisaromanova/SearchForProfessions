@@ -42,7 +42,6 @@ namespace SearchForProfessions
             cbFinancialBase.SelectedValue = admissionPlan.IDFinancialBasisis;
             cbEducationLevel.SelectedValue = admissionPlan.IDEducationLevel;
             tbPeriodOfStudy.Text = admissionPlan.PeriodOfStudy;
-            tbAdmissionPlan.Text = admissionPlan.AdmissionPlan.ToString();
             if (admissionPlan.EntranceTest)
             {
                 rbYes.IsChecked = true;
@@ -148,7 +147,7 @@ namespace SearchForProfessions
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (Classes.CheckFieldsClasses.CheckFieldsAdmissionPlan(cbOrganization.SelectedIndex, cbSpecialization.SelectedIndex, qualifications, cbFormOfTraining.SelectedIndex, cbFinancialBase.SelectedIndex, cbEducationLevel.SelectedIndex, tbPeriodOfStudy.Text, tbAdmissionPlan.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
+            if (Classes.CheckFieldsClasses.CheckFieldsAdmissionPlan(cbOrganization.SelectedIndex, cbSpecialization.SelectedIndex, qualifications, cbFormOfTraining.SelectedIndex, cbFinancialBase.SelectedIndex, cbEducationLevel.SelectedIndex, tbPeriodOfStudy.Text, (bool)rbYes.IsChecked, (bool)rbNo.IsChecked))
             {
                 try
                 {
@@ -163,7 +162,6 @@ namespace SearchForProfessions
                     admissionPlan.IDEducationLevel = (int)cbEducationLevel.SelectedValue;
                     admissionPlan.IDFormOfTraining = (int)cbFormOfTraining.SelectedValue;
                     admissionPlan.PeriodOfStudy = tbPeriodOfStudy.Text;
-                    admissionPlan.AdmissionPlan = Convert.ToInt32(tbAdmissionPlan.Text);
                     if(rbYes.IsChecked == true)
                     {
                         admissionPlan.EntranceTest = true;
